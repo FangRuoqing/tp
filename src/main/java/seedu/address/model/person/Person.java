@@ -103,7 +103,7 @@ public class Person {
         }
 
         return otherPerson != null
-                && otherPerson.getName().equals(getName());
+                && otherPerson.getName().fullName.equalsIgnoreCase(getName().fullName);
     }
 
     /**
@@ -114,9 +114,11 @@ public class Person {
         if (otherPerson == this) {
             return true;
         }
-
-        return otherPerson != null
-                && otherPerson.getName().fullName.contains(getName().fullName);
+        if (otherPerson == null) {
+            return false;
+        }
+        String otherPersonNameLowerCase = otherPerson.getName().fullName.toLowerCase();
+        return otherPersonNameLowerCase.contains(getName().fullName.toLowerCase());
     }
 
     /**

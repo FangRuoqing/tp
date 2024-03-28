@@ -85,7 +85,8 @@ public class AddressBook implements ReadOnlyAddressBook {
         List<String> keywords = Arrays.asList(parts);
         for (Person p : persons) {
             for (int i = 0; i < parts.length; i++) {
-                if (p.getName().fullName.contains(parts[i])) {
+                String nameStringLowerCase = p.getName().fullName.toLowerCase();
+                if (nameStringLowerCase.contains(parts[i].toLowerCase())) {
                     count++;
                 }
             }
