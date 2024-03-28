@@ -16,6 +16,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Person;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -43,6 +44,8 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane personListPanelPlaceholder;
+//    @FXML
+//    private StackPane personDetailsPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -163,6 +166,11 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
+//    private void handleView(Person p) {
+//        PersonDetailsPanel personDetailsPanel = new PersonDetailsPanel(p);
+//        personDetailsPlaceholder.getChildren().add(personDetailsPanel.getRoot());
+//    }
+
     public PersonListPanel getPersonListPanel() {
         return personListPanel;
     }
@@ -174,6 +182,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
+//            personDetailsPlaceholder.getChildren().clear();
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
