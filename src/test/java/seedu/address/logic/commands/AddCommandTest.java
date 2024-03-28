@@ -137,6 +137,10 @@ public class AddCommandTest {
         public boolean hasPerson(Person person) {
             throw new AssertionError("This method should not be called.");
         }
+        @Override
+        public boolean hasSimilarPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
 
         @Override
         public void deletePerson(Person target) {
@@ -187,6 +191,12 @@ public class AddCommandTest {
         public boolean hasPerson(Person person) {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePerson);
+        }
+
+        @Override
+        public boolean hasSimilarPerson(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(person::hasSimilarName);
         }
 
         @Override

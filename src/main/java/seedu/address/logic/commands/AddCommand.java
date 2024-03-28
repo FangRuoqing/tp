@@ -38,6 +38,8 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_WARN_POSSIBLE_DUPLICATE = "Warning: There are contacts in Connectify with "
+            + "similar names to %1$s.\n" + "New person added: %2$s";
 
     private final Person toAdd;
 
@@ -56,7 +58,11 @@ public class AddCommand extends Command {
         if (model.hasPerson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
-
+        if (model.hasSimilarPerson(toAdd)) {
+            model.addPerson(toAdd);
+            return new CommandResult(String.format(MESSAGE_WARN_POSSIBLE_DUPLICATE, toAdd.getName().fullName,
+                    Messages.format(toAdd)));
+        }
         model.addPerson(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(toAdd)));
     }

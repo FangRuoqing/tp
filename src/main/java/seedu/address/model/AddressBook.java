@@ -2,6 +2,7 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javafx.collections.ObservableList;
@@ -64,7 +65,32 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public boolean hasPerson(Person person) {
         requireNonNull(person);
-        return persons.contains(person);
+        int count = 0;
+        for (Person p : persons) {
+            if (p.getName().fullName.equalsIgnoreCase(person.getName().fullName)) {
+                count++;
+            }
+        }
+        return (count != 0);
+    }
+
+    /**
+     * Returns true if a person with the same contact name words as {@code name} exists in the address book.
+     */
+    public boolean hasSimilarPerson(Person person) {
+        requireNonNull(person);
+        String name = person.getName().fullName;
+        int count = 0;
+        String[] parts = name.split("\\s+");
+        List<String> keywords = Arrays.asList(parts);
+        for (Person p : persons) {
+            for (int i = 0; i < parts.length; i++) {
+                if (p.getName().fullName.contains(parts[i])) {
+                    count++;
+                }
+            }
+        }
+        return (count != 0);
     }
 
     /**
