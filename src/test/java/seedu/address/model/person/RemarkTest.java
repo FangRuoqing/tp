@@ -2,11 +2,29 @@ package seedu.address.model.person;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 public class RemarkTest {
 
+    @Test
+    public void isValidRemark() {
+        // null remark
+        assertThrows(NullPointerException.class, () -> Remark.isValidRemark(null));
+
+        // invalid remark
+        assertFalse(Remark.isValidRemark("     ")); // spaces only
+        assertFalse(Remark.isValidRemark(" ")); // spaces only
+        assertFalse(Remark.isValidRemark("")); // empty remark
+
+        // valid remarks
+
+        assertTrue(Remark.isValidRemark("Some remark"));
+        assertTrue(Remark.isValidRemark("-")); // one character
+        assertTrue(Remark.isValidRemark("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
+                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")); // long remark
+    }
     @Test
     public void equals() {
         Remark remark = new Remark("Hello");
