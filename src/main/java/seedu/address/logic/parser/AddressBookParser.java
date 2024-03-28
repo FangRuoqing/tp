@@ -126,7 +126,6 @@ public class AddressBookParser {
 
         case RemarkCommand.COMMAND_WORD:
             return new RemarkCommandParser().parse(arguments);
-            
         case UnstarCommand.COMMAND_WORD:
             return new UnstarCommandParser().parse(arguments);
 
