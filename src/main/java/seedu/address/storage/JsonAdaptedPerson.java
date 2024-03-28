@@ -11,6 +11,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.*;
+import seedu.address.logic.parser.AddMeetingCommandParser;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Company;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Meeting;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -25,6 +34,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String company;
+    private final String meeting;
     private final String priority;
     private final String remark;
     private Boolean starred;
@@ -36,13 +46,14 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-               @JsonProperty("company") String company, @JsonProperty("priority") String priority,
+               @JsonProperty("company") String company, @JsonProperty("meeting") String meeting, @JsonProperty("priority") String priority,
                   @JsonProperty("starred") Boolean starred, @JsonProperty("remark") String remark, @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.company = company;
+        this.meeting = meeting;
         this.priority = priority;
         this.starred = starred;
         this.remark = remark;
@@ -60,6 +71,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         address = source.getAddress().value;
         company = source.getCompany().value;
+        meeting = source.getMeeting().toString();
         priority = source.getPriority().value;
         starred = source.isStarred();
         remark = source.getRemark().value;
@@ -115,6 +127,13 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Company.class.getSimpleName()));
         }
         final Company modelCompany = new Company(company);
+
+        if (meeting == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Meeting.class.getSimpleName()));
+        }
+        String[] details = AddMeetingCommandParser.parseDetails(meeting);
+        final Meeting modelMeeting = new Meeting(details[0], details[1], details[2], details[3]);
+
         if (priority == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Priority.class.getSimpleName()));
@@ -125,6 +144,6 @@ class JsonAdaptedPerson {
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelAddress,
-                          modelCompany, modelPriority, starred, modelRemark, modelTags);
+                          modelCompany, modelMeeting, modelPriority, starred, modelRemark, modelTags);
     }
 }
