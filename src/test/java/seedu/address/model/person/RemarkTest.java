@@ -22,8 +22,8 @@ public class RemarkTest {
 
         assertTrue(Remark.isValidRemark("Some remark"));
         assertTrue(Remark.isValidRemark("-")); // one character
-        assertTrue(Remark.isValidRemark("Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
-                "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")); // long remark
+        assertTrue(Remark.isValidRemark("Lorem ipsum dolor sit amet, consectetur adipiscing elit, "
+                + "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")); // long remark
     }
     @Test
     public void equals() {
