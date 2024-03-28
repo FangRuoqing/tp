@@ -26,13 +26,14 @@ public class Person {
     private final Company company;
     private final Priority priority;
     private boolean starred;
+    private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Name, phone, email, address, tags must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address,
-                  Company company, Priority priority, Boolean starred, Set<Tag> tags) {
+                  Company company, Priority priority, Boolean starred, Remark remark, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -41,6 +42,7 @@ public class Person {
         this.company = company;
         this.priority = priority;
         this.starred = starred;
+        this.remark = remark;
         this.tags.addAll(tags);
     }
 
@@ -74,6 +76,11 @@ public class Person {
     public boolean isStarred() {
         return starred;
     }
+
+    public Remark getRemark() {
+        return remark;
+    }
+
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -137,6 +144,7 @@ public class Person {
                 .add("company", company)
                 .add("priority", priority)
                 .add("starred", starred)
+                .add("remark", remark)
                 .add("tags", tags)
                 .toString();
     }
