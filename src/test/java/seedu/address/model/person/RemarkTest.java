@@ -9,6 +9,16 @@ import org.junit.jupiter.api.Test;
 public class RemarkTest {
 
     @Test
+    public void constructor_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new Remark(null));
+    }
+
+    @Test
+    public void constructor_invalidAddress_throwsIllegalArgumentException() {
+        String invalidRemark = "  ";
+        assertThrows(IllegalArgumentException.class, () -> new Remark(invalidRemark));
+    }
+    @Test
     public void isValidRemark() {
         // null remark
         assertThrows(NullPointerException.class, () -> Remark.isValidRemark(null));
