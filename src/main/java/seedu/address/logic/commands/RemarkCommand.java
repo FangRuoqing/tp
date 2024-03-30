@@ -9,6 +9,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Remark;
 
@@ -31,28 +32,41 @@ public class RemarkCommand extends Command {
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
-    private final Index index;
+    public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
+            + "remark.";
+    private final String name;
     private final Remark remark;
 
     /**
-     * @param index of the person in the filtered person list to edit the remark
+     * @param name of the person in the filtered person list to edit the remark
      * @param remark of the person to be updated to
      */
-    public RemarkCommand(Index index, Remark remark) {
-        requireAllNonNull(index, remark);
+    public RemarkCommand(String name, Remark remark) {
+        requireAllNonNull(name, remark);
 
-        this.index = index;
+        this.name = name;
         this.remark = remark;
     }
     @Override
     public CommandResult execute(Model model) throws CommandException {
         List<Person> lastShownList = model.getFilteredPersonList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+//        if (index.getZeroBased() >= lastShownList.size()) {
+//            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+//        }
+        List<Person> contactList = model.getFilteredPersonList();
+        Person personToEdit = null;
+        for (Person person : contactList) {
+            if (person.getName().fullName.equalsIgnoreCase(name)) {
+                personToEdit = person;
+                break;
+            }
+        }
+        if (personToEdit == null) {
+            throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
         }
 
-        Person personToEdit = lastShownList.get(index.getZeroBased());
+//        Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(),
                 personToEdit.getEmail(), personToEdit.getAddress(),
@@ -88,7 +102,7 @@ public class RemarkCommand extends Command {
         }
 
         RemarkCommand e = (RemarkCommand) other;
-        return index.equals(e.index)
+        return name.equals(e.name)
                 && remark.equals(e.remark);
     }
 }
