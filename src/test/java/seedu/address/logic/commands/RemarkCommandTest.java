@@ -16,7 +16,6 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.Messages;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -87,11 +86,11 @@ public class RemarkCommandTest {
 
     @Test
     public void execute_invalidPersonIndexUnfilteredList_failure() {
-        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
         String unknownContact = "Unknown";
         RemarkCommand remarkCommand = new RemarkCommand(unknownContact, new Remark(VALID_REMARK_BOB));
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_PERSON_NOT_FOUND, unknownContact);
 
-        assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(remarkCommand, model, expectedMessage);
     }
 
     /**
@@ -103,12 +102,13 @@ public class RemarkCommandTest {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
         Index outOfBoundIndex = INDEX_SECOND_PERSON;
         String unknownContact = "Unknown";
+        String errorMessage = "Oops, Unknown's contact does not exist. Unable to add remark.";
         // ensures that outOfBoundIndex is still in bounds of address book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
 
         RemarkCommand remarkCommand = new RemarkCommand(unknownContact, new Remark(VALID_REMARK_BOB));
 
-        assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        assertCommandFailure(remarkCommand, model, errorMessage);
     }
 
     @Test
