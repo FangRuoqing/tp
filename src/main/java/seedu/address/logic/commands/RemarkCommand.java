@@ -19,17 +19,15 @@ public class RemarkCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Edits the remark of the person identified "
-            + "by the index number used in the last person listing. "
+            + "by the contact name used in Connectify. "
             + "Existing remark will be overwritten by the input.\n"
-            + "Parameters: INDEX (must be a positive integer) "
+            + "Parameters: <contact name> \n"
             + "r/ [REMARK]\n"
-            + "Example: " + COMMAND_WORD + " 1 "
+            + "Example: " + COMMAND_WORD + " Alex Yeoh "
             + "r/ Likes to swim.";
-
-    public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
-    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to Person: %1$s";
-    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from Person: %1$s";
-    public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
+    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to %1$s's contact.";
+    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from %1$s's contact.";
+    public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add the "
             + "remark.";
     private final String name;
     private final Remark remark;
@@ -80,7 +78,7 @@ public class RemarkCommand extends Command {
      */
     private String generateSuccessMessage(Person personToEdit) {
         String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
-        return String.format(message, personToEdit);
+        return String.format(message, personToEdit.getName().fullName);
     }
 
     @Override
