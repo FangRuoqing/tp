@@ -189,7 +189,16 @@ priority level is case-insensitive. e.g `pr/high Alex Tan` is the same as `pr/hi
 * Acceptable values for PRIORITY_LEVEL are `high` and `med`.
 
 Examples:
-* `pr/high Alex Tan` assigns `HIGH` priority level to the contact name `Alex Tan` in the address book.
+* `pr/high Alex Tan` assigns `high` priority level to the contact name `Alex Tan` in the address book.
+
+### Removing priority level from a contact : `pr/none`
+
+Removes the priority level from the specified contact.
+
+Format: `pr/none NAME`
+
+Examples:
+* `pr/none Alex Tan` removes the priority level from the contact name `Alex Tan` in the address book.
 
 ### Filtering contacts by priority : `filter-PRIORITY_LEVEL`
 
@@ -197,9 +206,11 @@ Filters the contacts in the address book by the specified priority level.
 
 Format: `filter-PRIORITY_LEVEL`
 
+* Acceptable values for PRIORITY_LEVEL are high and med.
+
 Examples:
-* `filter-high` returns a list of contacts with priority assigned as `high`.
-* `filter-med` returns a list of contacts with priority assigned as `med`.
+* `filter-high` returns a list of contacts with high priority.
+* `filter-med` returns a list of contacts with medium priority.
 
 ### Getting the number of contacts : `count`
 
@@ -221,7 +232,7 @@ Examples:
 
 ### Undoing the last command : `undo`
 
-Undoes the most recent add command by removing the most recently added contact.
+Undoes the most recently added command by removing the most recently added contact.
 
 Format: `undo`
 
