@@ -33,6 +33,8 @@ public class PriorityCommand extends Command {
     public static final String MESSAGE_DELETE_PRIORITY_SUCCESS = "Removed priority from this contact: \n"
             + "\tName: %1$s | Phone: %2$s";
 
+    public static final String MESSAGE_DELETE_PRIORITY_FAILURE ="Error! %1$s's contact does not have a priority to remove.";
+
     private final String name;
     private final Priority priority;
 
@@ -67,6 +69,10 @@ public class PriorityCommand extends Command {
         }
         if (personToEdit == null) {
             throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
+        }
+
+        if (!priority.hasPriority() && !personToEdit.getPriority().hasPriority()) {
+            throw new CommandException(String.format(MESSAGE_DELETE_PRIORITY_FAILURE, name));
         }
 
         Person editedPerson = new Person(

@@ -151,17 +151,21 @@ Format: `delete NAME`
 Examples:
 * `delete Betsy` deletes the contact with the contact name `Betsy` in the address book.
 
-### Adding a company tag to a person : `co`
+### Tagging a company to a person : `co`
 
-Adds the specified company tag name to the specified contact.
+Tags the specified company name to the specified contact.
 
 Format: `co NAME c/COMPANY_NAME`
 
-* Adds the company tag to the person's contact. The specified `NAME` of the contact to add the company tag is 
+* Tags the company name to the person's contact. The specified `NAME` of the contact to add the company tag is 
 case-insensitive. e.g `co John Doe c/TikTok` is the same as `co john doe c/TikTok`
+* You can remove company tag from a person's contact by typing `co NAME c/`, leaving the COMPANY_NAME as empty. 
+If the person's contact did not have a company tag and `co NAME c/` is entered, the person's contact will remain 
+the same.
 
 Examples:
 * `co Betsy c/Google` adds the company tag `Google` to the contact name `Betsy` in the address book.
+* * `co Alex c/` removes the company tag from the contact name `Alex` in the address book.
 
 ### Locating persons by company tag : `findco`
 
@@ -178,26 +182,23 @@ Examples:
 * `findco Google` returns `John Lim`, who has a company tag of `Google` in the address book.<br>
   ![result for 'findco Google'](images/findcoGoogle.png)
 
-### Assigning priority level to a contact : `pr/PRIORITY_LEVEL`
+### Prioritising a contact : `pr/PRIORITY_LEVEL`
 
-Assigns the specified priority level to the specified contact.
+Assigns the specified priority level to the specified contact or removes the priority level from the specified contact.
 
 Format: `pr/PRIORITY_LEVEL NAME`
 
-* Assigns the specified priority level to the person's contact. The specified `NAME` of the contact to assign the 
-priority level is case-insensitive. e.g `pr/high Alex Tan` is the same as `pr/high alex tan`
-* Acceptable values for PRIORITY_LEVEL are `high` and `med`.
+* The specified `NAME` of the contact to assign the priority level to is case-insensitive. 
+e.g `pr/high Alex Tan` is the same as `pr/high alex tan`
+* Acceptable values for PRIORITY_LEVEL are `high`, `med` and `none`
+* `pr/high NAME` assigns the `high` priority level to the specified contact.
+* `pr/med NAME` assigns the `medium` priority level to the specified contact.
+* `pr/none NAME` removes the priority level from the specified contact. If the person's 
+contact did not have a priority level and `pr/none NAME` is entered, an error message will appear and the
+person's contact will remain the same.
 
 Examples:
 * `pr/high Alex Tan` assigns `high` priority level to the contact name `Alex Tan` in the address book.
-
-### Removing priority level from a contact : `pr/none`
-
-Removes the priority level from the specified contact.
-
-Format: `pr/none NAME`
-
-Examples:
 * `pr/none Alex Tan` removes the priority level from the contact name `Alex Tan` in the address book.
 
 ### Filtering contacts by priority : `filter-PRIORITY_LEVEL`
@@ -207,6 +208,22 @@ Filters the contacts in the address book by the specified priority level.
 Format: `filter-PRIORITY_LEVEL`
 
 * Acceptable values for PRIORITY_LEVEL are high and med.
+
+Examples:
+* `filter-high` returns a list of contacts with high priority.
+* `filter-med` returns a list of contacts with medium priority.
+
+### Adding a meeting to a person : `mtg`
+
+Adds a meeting with a description and a date and time to the specified person in the address book.
+
+Format: `mtg NAME m/MEETING_DESCRIPTION time/MEETING_TIME`
+
+* The specified NAME of the contact is case-insensitive. 
+e.g delete John Doe is the same as delete john doe
+* The specified MEETING_TIME must be of the format dd-MM-YYYY HHmm-HHmm.
+* Leaving both `MEETING_DESCRIPTION` and `MEETING_TIME` removes the meeting from the contact.
+* If `MEETING_DESCRIPTION` is entered, `MEETING_TIME` is mandatory to be entered.
 
 Examples:
 * `filter-high` returns a list of contacts with high priority.
@@ -229,6 +246,19 @@ Format: `star NAME`
 
 Examples:
 * `star Betsy` stars the contact with the contact name `Betsy` in the address book.
+
+### Removing the star from a contact : `unstar`
+
+Removes the star from the specified contact in the address book.
+
+Format: `unstar NAME`
+
+* Removes the star from the contact with the specified `NAME`. The specified `NAME` of the contact 
+to remove the star from is case-insensitive.
+  e.g `unstar John Doe` is the same as `unstar john doe`
+
+Examples:
+* `unstar Betsy` removes the star from the contact with the contact name `Betsy` in the address book.
 
 ### Undoing the last command : `undo`
 
