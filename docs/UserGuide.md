@@ -84,16 +84,16 @@ Format: `help`
 
 Adds a person to the address book.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
 <box type="tip" seamless>
 
-**Tip:** A person can have any number of tags (including 0)
+**Tip:** A person's email and address are optional. A person can have any number of tags (including 0).
 </box>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/John Doe p/98765432 a/John street, block 123, #01-01`
+* `add n/Betsy Crowe t/recruiter e/betsycrowe@example.com a/Betsy street, block 456, #02-02 p/1234567`
 
 ### Listing all persons : `list`
 
@@ -130,14 +130,14 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
+* Partial words will be matched e.g. `Han` will match `Hans`
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+  ![result for 'find james betsy'](images/findJamesBetsyResult.png)
 
 ### Deleting a person : `delete`
 
@@ -162,6 +162,21 @@ case-insensitive. e.g `co John Doe c/TikTok` is the same as `co john doe c/TikTo
 
 Examples:
 * `co Betsy c/Google` adds the company tag `Google` to the contact name `Betsy` in the address book.
+
+### Locating persons by company tag : `findco`
+
+Finds persons whose company tag exactly matches the specified keyword.
+
+Format: `findco KEYWORD`
+
+* Finds persons by the company tag. The specified `KEYWORD` is
+  case-insensitive. e.g `findco TikTok` is the same as `findco tiktok`
+* The specified keyword has to be exactly the same as the person's company 
+tag for the person to be found e.g. the keyword `goog` will not match the company tag `google`
+
+Examples:
+* `findco Google` returns `John Lim`, who has a company tag of `Google` in the address book.<br>
+  ![result for 'findco Google'](images/findcoGoogle.png)
 
 ### Assigning priority level to a contact : `pr/PRIORITY_LEVEL`
 
