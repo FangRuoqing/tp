@@ -32,8 +32,8 @@ public class Remark {
     }
 
     /**
-     Checks if the Person has a remark.
-     @return true if the value is not empty (has remark), false otherwise.
+     * Checks if the Person has a remark.
+     * @return true if the value is not empty (has remark), false otherwise.
      */
     public boolean hasRemark() {
         return !value.isEmpty();

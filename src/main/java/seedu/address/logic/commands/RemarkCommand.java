@@ -8,7 +8,6 @@ import java.util.List;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.Priority;
 import seedu.address.model.person.Remark;
 
 
@@ -30,7 +29,8 @@ public class RemarkCommand extends Command {
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Remark: %2$s";
     public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to %1$s's contact";
     public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from %1$s's contact";
-    public static final String MESSAGE_DELETE_REMARK_FAILURE ="Error! %1$s's contact does not have a remark to remove.";
+    public static final String MESSAGE_DELETE_REMARK_FAILURE =
+            "Error! %1$s's contact does not have a remark to remove.";
     public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
             + "remark.";
     private final String name;

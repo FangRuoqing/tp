@@ -30,10 +30,12 @@ public class PriorityCommand extends Command {
     public static final String MESSAGE_EMPTY_NAME = "Oops, please state the name of the contact.";
     public static final String MESSAGE_ADD_PRIORITY_SUCCESS = "Added this contact with %1$s priority:\n"
             + "%2$s\tName: %3$s | Phone: %4$s";
-    public static final String MESSAGE_DELETE_PRIORITY_SUCCESS = "Removed priority from this contact: \n"
+    public static final String MESSAGE_DELETE_PRIORITY_SUCCESS =
+            "Removed priority from this contact: \n"
             + "\tName: %1$s | Phone: %2$s";
 
-    public static final String MESSAGE_DELETE_PRIORITY_FAILURE ="Error! %1$s's contact does not have a priority to remove.";
+    public static final String MESSAGE_DELETE_PRIORITY_FAILURE =
+            "Error! %1$s's contact does not have a priority to remove.";
 
     private final String name;
     private final Priority priority;
