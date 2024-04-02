@@ -111,7 +111,23 @@ public class Person {
         }
 
         return otherPerson != null
-                && otherPerson.getName().equals(getName());
+                && otherPerson.getName().fullName.equalsIgnoreCase(getName().fullName);
+    }
+
+    /**
+     * Returns true if both persons have similar names.
+     * This defines a weaker notion of equality between two persons.
+     */
+    public boolean hasSimilarName(Person otherPerson) {
+        if (otherPerson == this) {
+            return true;
+        }
+        if (otherPerson == null) {
+            return false;
+        }
+        String otherPersonNameLowerCase = otherPerson.getName().fullName.replaceAll("\\s", "")
+                .toLowerCase();
+        return otherPersonNameLowerCase.contains(getName().fullName.replaceAll("\\s", "").toLowerCase());
     }
 
     /**
