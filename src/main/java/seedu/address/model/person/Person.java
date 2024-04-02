@@ -117,8 +117,9 @@ public class Person {
         if (otherPerson == null) {
             return false;
         }
-        String otherPersonNameLowerCase = otherPerson.getName().fullName.toLowerCase();
-        return otherPersonNameLowerCase.contains(getName().fullName.toLowerCase());
+        String otherPersonNameLowerCase = otherPerson.getName().fullName.replaceAll("\\s", "")
+                .toLowerCase();
+        return otherPersonNameLowerCase.contains(getName().fullName.replaceAll("\\s", "").toLowerCase());
     }
 
     /**
