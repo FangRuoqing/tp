@@ -98,6 +98,17 @@ public class CompanyCommandTest {
     }
 
     @Test
+    public void execute_deleteCompanyAlreadyDeleted_throwsCommandException() {
+        Person personToDeleteCompany = new PersonBuilder()
+                .withName("Alex Tan").withPhone("12345678").withCompany("").build();
+        Model model = new ModelManager();
+        model.addPerson(personToDeleteCompany);
+        CompanyCommand deleteCompanyCommand = new CompanyCommand("Alex Tan", new Company(""));
+        assertCommandFailure(deleteCompanyCommand, model,
+                String.format(CompanyCommand.MESSAGE_DELETE_COMPANY_FAILURE, "Alex Tan"));
+    }
+
+    @Test
     public void equals() {
         final CompanyCommand standardCommand = new CompanyCommand("Amy Reale",
                 new Company(VALID_COMPANY_AMY));

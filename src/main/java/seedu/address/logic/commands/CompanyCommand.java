@@ -33,10 +33,12 @@ public class CompanyCommand extends Command {
     public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist.\nUnable to add "
             + "company tag";
     public static final String MESSAGE_EMPTY_NAME = "Oops, please state the name of the contact";
+    public static final String MESSAGE_DELETE_COMPANY_FAILURE =
+            "Error! %1$s's contact does not have a company tag to remove.";
 
     private final String name;
     private final Company company;
-
+    private String message;
 
     /**
      * @param name  of the person in the filtered person list to edit the company
@@ -67,6 +69,16 @@ public class CompanyCommand extends Command {
             throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
         }
         String currentCompany = personToEdit.getCompany().value;
+        if (!company.hasCompany()) {
+            if (personToEdit.getCompany().hasCompany()) {
+                message = MESSAGE_DELETE_COMPANY_SUCCESS;
+            } else {
+                throw new CommandException(String.format(MESSAGE_DELETE_COMPANY_FAILURE, name));
+            }
+        } else {
+            message = MESSAGE_ADD_COMPANY_SUCCESS;
+        }
+
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), company, personToEdit.getMeeting(), personToEdit.getPriority(),
@@ -83,6 +95,7 @@ public class CompanyCommand extends Command {
      * the company is added to or removed from
      * {@code personToEdit}.
      */
+
     private String generateSuccessMessage(Person personToEdit, String prevCo) {
         String message = !company.value.isEmpty() ? (prevCo.isEmpty() ? MESSAGE_ADD_COMPANY_SUCCESS
                 : MESSAGE_ADD_COMPANY_WARN) : MESSAGE_DELETE_COMPANY_SUCCESS;

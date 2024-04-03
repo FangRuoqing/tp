@@ -25,12 +25,16 @@ public class RemarkCommand extends Command {
             + "r/ [REMARK]\n"
             + "Example: " + COMMAND_WORD + " Alex Yeoh "
             + "r/ Likes to swim.";
-    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to %1$s's contact.";
-    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from %1$s's contact.";
-    public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add the "
-            + "remark.";
+
+    public static final String MESSAGE_ADD_REMARK_SUCCESS = "Added remark to %1$s's contact";
+    public static final String MESSAGE_DELETE_REMARK_SUCCESS = "Removed remark from %1$s's contact";
+    public static final String MESSAGE_DELETE_REMARK_FAILURE =
+            "Error! %1$s's contact does not have a remark to remove.";
+    public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
+            + "remark";
     private final String name;
     private final Remark remark;
+    private String message;
 
     /**
      * @param name of the person in the filtered person list to edit the remark
@@ -57,6 +61,15 @@ public class RemarkCommand extends Command {
         if (personToEdit == null) {
             throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
         }
+        if (!remark.hasRemark()) {
+            if (personToEdit.getRemark().hasRemark()) {
+                message = MESSAGE_DELETE_REMARK_SUCCESS;
+            } else {
+                throw new CommandException(String.format(MESSAGE_DELETE_REMARK_FAILURE, name));
+            }
+        } else {
+            message = MESSAGE_ADD_REMARK_SUCCESS;
+        }
 
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(),
@@ -78,7 +91,7 @@ public class RemarkCommand extends Command {
      */
     private String generateSuccessMessage(Person personToEdit) {
         String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
-        return String.format(message, personToEdit.getName().fullName);
+        return String.format(message, personToEdit.getName());
     }
 
     @Override
