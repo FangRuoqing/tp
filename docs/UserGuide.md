@@ -159,13 +159,13 @@ Format: `co NAME c/COMPANY_NAME`
 
 * Tags the company name to the person's contact. The specified `NAME` of the contact to add the company tag is 
 case-insensitive. e.g `co John Doe c/TikTok` is the same as `co john doe c/TikTok`
-* You can remove company tag from a person's contact by typing `co NAME c/`, leaving the COMPANY_NAME as empty. 
-If the person's contact did not have a company tag and `co NAME c/` is entered, the person's contact will remain 
-the same.
+* Entering `co NAME c/`, leaving the COMPANY_NAME as empty, will remove the company 
+tag from a person's contact. If the person's contact did not have a company 
+tag and `co NAME c/` is entered, the person's contact will remain the same.
 
 Examples:
 * `co Betsy c/Google` adds the company tag `Google` to the contact name `Betsy` in the address book.
-* * `co Alex c/` removes the company tag from the contact name `Alex` in the address book.
+* `co Alex c/` removes the company tag from the contact name `Alex` in the address book.
 
 ### Locating persons by company tag : `findco`
 
@@ -220,14 +220,41 @@ Adds a meeting with a description and a date and time to the specified person in
 Format: `mtg NAME m/MEETING_DESCRIPTION time/MEETING_TIME`
 
 * The specified NAME of the contact is case-insensitive. 
-e.g delete John Doe is the same as delete john doe
+e.g `mtg john lim m/interview time/23-03-2024 1600-1700` is 
+the same as `mtg John Lim m/interview time/23-03-2024 1600-1700`
 * The specified MEETING_TIME must be of the format dd-MM-YYYY HHmm-HHmm.
-* Leaving both `MEETING_DESCRIPTION` and `MEETING_TIME` removes the meeting from the contact.
+* Entering `mtg NAME m/` removes the meeting from the specified contact.
+If the person's contact did not have a meeting and `mtg NAME m/` is entered, 
+an error message will appear and the person's contact will remain the same. 
 * If `MEETING_DESCRIPTION` is entered, `MEETING_TIME` is mandatory to be entered.
 
 Examples:
-* `filter-high` returns a list of contacts with high priority.
-* `filter-med` returns a list of contacts with medium priority.
+* `mtg Alex Tan lim m/interview time/05-11-2024 0800-0930`
+* `mtg Alex Tan lim m/`
+
+### Viewing all contacts with meetings : `meetings`
+
+Lists all contacts with meetings.
+
+Format: `meetings`
+
+### Adding a remark to a person : `remark`
+
+Adds the specified remark to the specified contact.
+
+Format: `remark NAME r/REMARK_DESCRIPTION`
+
+* The specified `NAME` of the contact to add the company tag is
+case-insensitive. e.g `remark John Doe r/met him at the career fair` is the 
+same as `remark john doe r/met him at the career fair`
+* Entering `remark NAME r/`, leaving the `REMARK_DESCRIPTION` as empty, will remove the remark
+from a person's contact. If the person's contact did not have a remark
+and `remark NAME r/` is entered, an error message will appear and 
+the person's contact will remain the same.
+
+Examples:
+* `co Betsy c/Google` adds the company tag `Google` to the contact name `Betsy` in the address book.
+* `co Alex c/` removes the company tag from the contact name `Alex` in the address book.
 
 ### Getting the number of contacts : `count`
 
