@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_BOB;
@@ -14,7 +13,6 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -101,15 +99,13 @@ public class PriorityCommandTest {
 
     @Test
     public void execute_removePriorityAlreadyRemovedPriority_throwsCommandException() {
-        String contactName = "Alex Tan";
-        Person personToRemovePriority = new PersonBuilder().withPriority("").build();
+        Person personToRemovePriority = new PersonBuilder()
+                .withName("Alex Tan").withPhone("12345678").withPriority("").build();
         Model model = new ModelManager();
         model.addPerson(personToRemovePriority);
-        PriorityCommand removerPriorityCommand = new PriorityCommand(contactName, new Priority(""));
-
-        model.getFilteredPersonList().get(0);
-
-        assertThrows(CommandException.class, () -> removerPriorityCommand.execute(model));
+        PriorityCommand removePriorityCommand = new PriorityCommand("Alex Tan", new Priority(""));
+        assertCommandFailure(removePriorityCommand, model,
+                String.format(PriorityCommand.MESSAGE_DELETE_PRIORITY_FAILURE, "Alex Tan"));
     }
 
     @Test
