@@ -98,6 +98,17 @@ public class PriorityCommandTest {
     }
 
     @Test
+    public void execute_removePriorityAlreadyRemovedPriority_throwsCommandException() {
+        Person personToRemovePriority = new PersonBuilder()
+                .withName("Alex Tan").withPhone("12345678").withPriority("").build();
+        Model model = new ModelManager();
+        model.addPerson(personToRemovePriority);
+        PriorityCommand removePriorityCommand = new PriorityCommand("Alex Tan", new Priority(""));
+        assertCommandFailure(removePriorityCommand, model,
+                String.format(PriorityCommand.MESSAGE_DELETE_PRIORITY_FAILURE, "Alex Tan"));
+    }
+
+    @Test
     public void equals() {
         final PriorityCommand standardCommand = new PriorityCommand("Amy Reale",
                 new Priority(VALID_PRIORITY_AMY));
