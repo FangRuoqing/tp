@@ -8,14 +8,12 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.AMY;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.index.Index;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -41,7 +39,7 @@ public class RemarkCommandTest {
         RemarkCommand remarkCommand = new RemarkCommand(firstPerson.getName().toString(),
                 new Remark(editedPerson.getRemark().value));
 
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson.getName());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -57,7 +55,7 @@ public class RemarkCommandTest {
         RemarkCommand remarkCommand = new RemarkCommand(firstPerson.getName().toString(),
                 new Remark(editedPerson.getRemark().toString()));
 
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_DELETE_REMARK_SUCCESS, editedPerson);
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_DELETE_REMARK_SUCCESS, editedPerson.getName());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -76,7 +74,7 @@ public class RemarkCommandTest {
         RemarkCommand remarkCommand = new RemarkCommand(firstPerson.getName().toString(),
                 new Remark(editedPerson.getRemark().value));
 
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
+        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson.getName());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -98,17 +96,14 @@ public class RemarkCommandTest {
      * but smaller than size of address book
      */
     @Test
-    public void execute_invalidPersonIndexFilteredList_failure() {
+    public void execute_invalidPersonNameFilteredList_failure() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
-        Index outOfBoundIndex = INDEX_SECOND_PERSON;
         String unknownContact = "Unknown";
-        String errorMessage = "Oops, Unknown's contact does not exist. Unable to add remark.";
-        // ensures that outOfBoundIndex is still in bounds of address book list
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
 
         RemarkCommand remarkCommand = new RemarkCommand(unknownContact, new Remark(VALID_REMARK_BOB));
 
-        assertCommandFailure(remarkCommand, model, errorMessage);
+        assertCommandFailure(remarkCommand, model, String.format(RemarkCommand.MESSAGE_PERSON_NOT_FOUND,
+                unknownContact));
     }
 
     @Test

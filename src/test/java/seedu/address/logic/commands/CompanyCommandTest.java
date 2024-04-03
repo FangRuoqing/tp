@@ -37,8 +37,8 @@ public class CompanyCommandTest {
         CompanyCommand companyCommand = new CompanyCommand(editedPerson.getName().fullName,
                 new Company(editedPerson.getCompany().value));
 
-        String expectedMessage = String.format(CompanyCommand.MESSAGE_ADD_COMPANY_SUCCESS,
-                editedPerson.getName().fullName, editedPerson.getCompany().value);
+        String expectedMessage = String.format(CompanyCommand.MESSAGE_ADD_COMPANY_WARN,
+                editedPerson.getName().fullName, editedPerson.getCompany().value, firstPerson.getCompany().value);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -74,8 +74,8 @@ public class CompanyCommandTest {
         CompanyCommand companyCommand = new CompanyCommand(editedPerson.getName().fullName,
                 new Company(editedPerson.getCompany().value));
 
-        String expectedMessage = String.format(CompanyCommand.MESSAGE_ADD_COMPANY_SUCCESS,
-                editedPerson.getName().fullName, editedPerson.getCompany().value);
+        String expectedMessage = String.format(CompanyCommand.MESSAGE_ADD_COMPANY_WARN,
+                editedPerson.getName().fullName, editedPerson.getCompany().value, firstPerson.getCompany().value);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);

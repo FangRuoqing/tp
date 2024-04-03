@@ -38,8 +38,9 @@ public class AddMeetingCommandTest {
         AddMeetingCommand addMeetingCommand = new AddMeetingCommand(editedPerson.getName().fullName,
                 new Meeting(details[0], details[1], details[2], details[3]));
 
-        String expectedMessage = String.format(AddMeetingCommand.MESSAGE_ADD_MEETING_SUCCESS,
-                editedPerson.getName().fullName, editedPerson.getMeeting().toString());
+        String expectedMessage = String.format(AddMeetingCommand.MESSAGE_ADD_MEETING_WARN,
+                editedPerson.getName().fullName, editedPerson.getMeeting().toString(),
+                firstPerson.getMeeting().toString());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -78,8 +79,9 @@ public class AddMeetingCommandTest {
         AddMeetingCommand addMeetingCommand = new AddMeetingCommand(editedPerson.getName().fullName,
                 new Meeting(details[0], details[1], details[2], details[3]));
 
-        String expectedMessage = String.format(AddMeetingCommand.MESSAGE_ADD_MEETING_SUCCESS,
-                editedPerson.getName().fullName, editedPerson.getMeeting().toString());
+        String expectedMessage = String.format(AddMeetingCommand.MESSAGE_ADD_MEETING_WARN,
+                editedPerson.getName().fullName, editedPerson.getMeeting().toString(),
+                firstPerson.getMeeting().toString());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
