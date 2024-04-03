@@ -28,13 +28,13 @@ public class CompanyCommand extends Command {
 
     public static final String MESSAGE_ADD_COMPANY_SUCCESS = "Tagged %1$s's company as %2$s";
     public static final String MESSAGE_DELETE_COMPANY_SUCCESS = "Removed the company tag from %1$s's contact";
+    public static final String MESSAGE_ADD_COMPANY_WARN = "Changed the existing company tag for %1$s's contact\n"
+            + "Previous company tag: %3$s\n" + "Updated company tag: %2$s";
+    public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist.\nUnable to add "
+            + "company tag";
+    public static final String MESSAGE_EMPTY_NAME = "Oops, please state the name of the contact";
     public static final String MESSAGE_DELETE_COMPANY_FAILURE =
             "Error! %1$s's contact does not have a company tag to remove.";
-    public static final String MESSAGE_NOT_IMPLEMENTED_YET =
-            "Company command not implemented yet";
-    public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
-            + "company tag.";
-    public static final String MESSAGE_EMPTY_NAME = "Oops, please state the name of the contact.";
 
     private final String name;
     private final Company company;
@@ -68,6 +68,7 @@ public class CompanyCommand extends Command {
         if (personToEdit == null) {
             throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
         }
+        String currentCompany = personToEdit.getCompany().value;
         if (!company.hasCompany()) {
             if (personToEdit.getCompany().hasCompany()) {
                 message = MESSAGE_DELETE_COMPANY_SUCCESS;
@@ -77,6 +78,7 @@ public class CompanyCommand extends Command {
         } else {
             message = MESSAGE_ADD_COMPANY_SUCCESS;
         }
+
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), company, personToEdit.getMeeting(), personToEdit.getPriority(),
@@ -85,7 +87,7 @@ public class CompanyCommand extends Command {
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(generateSuccessMessage(editedPerson));
+        return new CommandResult(generateSuccessMessage(editedPerson, currentCompany));
     }
 
     /**
@@ -93,8 +95,11 @@ public class CompanyCommand extends Command {
      * the company is added to or removed from
      * {@code personToEdit}.
      */
-    private String generateSuccessMessage(Person personToEdit) {
-        return String.format(message, personToEdit.getName(), company);
+
+    private String generateSuccessMessage(Person personToEdit, String prevCo) {
+        String message = !company.value.isEmpty() ? (prevCo.isEmpty() ? MESSAGE_ADD_COMPANY_SUCCESS
+                : MESSAGE_ADD_COMPANY_WARN) : MESSAGE_DELETE_COMPANY_SUCCESS;
+        return String.format(message, personToEdit.getName(), company, prevCo);
     }
 
     @Override
