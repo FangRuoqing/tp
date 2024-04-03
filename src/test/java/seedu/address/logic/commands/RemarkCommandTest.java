@@ -116,7 +116,7 @@ public class RemarkCommandTest {
     }
 
     @Test
-    public void execute_deleteRemarkAlreadyDeletedContact_throwsCommandException() {
+    public void execute_deleteRemarkAlreadyDeleted_throwsCommandException() {
         String contactName = "Alex Tan";
         Person personToDeleteRemark = new PersonBuilder().withRemark("hi").build();
         Model model = new ModelManager();

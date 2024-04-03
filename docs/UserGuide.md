@@ -159,9 +159,10 @@ Format: `co NAME c/COMPANY_NAME`
 
 * Tags the company name to the person's contact. The specified `NAME` of the contact to add the company tag is 
 case-insensitive. e.g `co John Doe c/TikTok` is the same as `co john doe c/TikTok`
-* Entering `co NAME c/`, leaving the COMPANY_NAME as empty, will remove the company 
+* Entering `co NAME c/`, leaving the `COMPANY_NAME` as empty, will remove the company 
 tag from a person's contact. If the person's contact did not have a company 
-tag and `co NAME c/` is entered, the person's contact will remain the same.
+tag and `co NAME c/` is entered, an error message will appear and the
+person's contact will remain the same.
 
 Examples:
 * `co Betsy c/Google` adds the company tag `Google` to the contact name `Betsy` in the address book.
