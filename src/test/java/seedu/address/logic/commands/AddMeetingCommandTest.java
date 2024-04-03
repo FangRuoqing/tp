@@ -6,6 +6,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ public class AddMeetingCommandTest {
 
     @Test
     public void execute_addMeetingUnfilteredList_success() {
-        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_THIRD_PERSON.getZeroBased());
         Person editedPerson = new PersonBuilder(firstPerson).withMeeting(MEETING_STUB).build();
 
         String[] details = AddMeetingCommandParser.parseDetails(editedPerson.getMeeting().toString());
@@ -38,9 +39,8 @@ public class AddMeetingCommandTest {
         AddMeetingCommand addMeetingCommand = new AddMeetingCommand(editedPerson.getName().fullName,
                 new Meeting(details[0], details[1], details[2], details[3]));
 
-        String expectedMessage = String.format(AddMeetingCommand.MESSAGE_ADD_MEETING_WARN,
-                editedPerson.getName().fullName, editedPerson.getMeeting().toString(),
-                firstPerson.getMeeting().toString());
+        String expectedMessage = String.format(AddMeetingCommand.MESSAGE_ADD_MEETING_SUCCESS,
+                editedPerson.getName().fullName, editedPerson.getMeeting().toString());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
