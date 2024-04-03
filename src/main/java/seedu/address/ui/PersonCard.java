@@ -121,7 +121,7 @@ public class PersonCard extends UiPart<Region> {
     }
 
     private void setMeeting() {
-        if (person.getMeeting() != null) {
+        if (!person.getMeeting().toString().equals("")) {
             meeting.setText(person.getMeeting().toString());
             meeting.setVisible(true);
         } else {
