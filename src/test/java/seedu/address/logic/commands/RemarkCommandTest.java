@@ -38,7 +38,6 @@ public class RemarkCommandTest {
 
         RemarkCommand remarkCommand = new RemarkCommand(firstPerson.getName().toString(),
                 new Remark(editedPerson.getRemark().value));
-
         String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson.getName());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -54,7 +53,6 @@ public class RemarkCommandTest {
 
         RemarkCommand remarkCommand = new RemarkCommand(firstPerson.getName().toString(),
                 new Remark(editedPerson.getRemark().toString()));
-
         String expectedMessage = String.format(RemarkCommand.MESSAGE_DELETE_REMARK_SUCCESS, editedPerson.getName());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -73,7 +71,6 @@ public class RemarkCommandTest {
 
         RemarkCommand remarkCommand = new RemarkCommand(firstPerson.getName().toString(),
                 new Remark(editedPerson.getRemark().value));
-
         String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson.getName());
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
@@ -104,6 +101,17 @@ public class RemarkCommandTest {
 
         assertCommandFailure(remarkCommand, model, String.format(RemarkCommand.MESSAGE_PERSON_NOT_FOUND,
                 unknownContact));
+    }
+
+    @Test
+    public void execute_deleteRemarkAlreadyDeleted_throwsCommandException() {
+        Person personToDeleteRemark = new PersonBuilder()
+                .withName("Alex Tan").withPhone("12345678").withRemark("").build();
+        Model model = new ModelManager();
+        model.addPerson(personToDeleteRemark);
+        RemarkCommand deleteRemarkCommand = new RemarkCommand("Alex Tan", new Remark(""));
+        assertCommandFailure(deleteRemarkCommand, model,
+                String.format(RemarkCommand.MESSAGE_DELETE_REMARK_FAILURE, "Alex Tan"));
     }
 
     @Test
