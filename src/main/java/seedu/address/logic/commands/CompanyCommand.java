@@ -28,6 +28,8 @@ public class CompanyCommand extends Command {
 
     public static final String MESSAGE_ADD_COMPANY_SUCCESS = "Tagged %1$s's company as %2$s";
     public static final String MESSAGE_DELETE_COMPANY_SUCCESS = "Removed the company tag from %1$s's contact";
+    public static final String MESSAGE_DELETE_COMPANY_FAILURE =
+            "Error! %1$s's contact does not have a company tag to remove.";
     public static final String MESSAGE_NOT_IMPLEMENTED_YET =
             "Company command not implemented yet";
     public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
@@ -36,7 +38,7 @@ public class CompanyCommand extends Command {
 
     private final String name;
     private final Company company;
-
+    private String message;
 
     /**
      * @param name  of the person in the filtered person list to edit the company
@@ -66,6 +68,15 @@ public class CompanyCommand extends Command {
         if (personToEdit == null) {
             throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
         }
+        if (!company.hasCompany()) {
+            if (personToEdit.getCompany().hasCompany()) {
+                message = MESSAGE_DELETE_COMPANY_SUCCESS;
+            } else {
+                throw new CommandException(String.format(MESSAGE_DELETE_COMPANY_FAILURE, name));
+            }
+        } else {
+            message = MESSAGE_ADD_COMPANY_SUCCESS;
+        }
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), company, personToEdit.getMeeting(), personToEdit.getPriority(),
@@ -83,7 +94,6 @@ public class CompanyCommand extends Command {
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Person personToEdit) {
-        String message = !company.value.isEmpty() ? MESSAGE_ADD_COMPANY_SUCCESS : MESSAGE_DELETE_COMPANY_SUCCESS;
         return String.format(message, personToEdit.getName(), company);
     }
 
