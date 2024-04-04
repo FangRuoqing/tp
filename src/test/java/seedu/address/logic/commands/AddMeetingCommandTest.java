@@ -97,7 +97,7 @@ public class AddMeetingCommandTest {
     }
 
     @Test
-    public void execute_PersonWithNoCompanyDeleteCoFailure_throwsCommandException() {
+    public void execute_emptyMeetingDeleteFailure_throwsCommandException() {
         Person thirdPerson = model.getFilteredPersonList().get(INDEX_THIRD_PERSON.getZeroBased());
         String thirdPersonName = thirdPerson.getName().fullName;
         AddMeetingCommand addMeetingCommand = new AddMeetingCommand(thirdPersonName,
