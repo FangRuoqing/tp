@@ -3,9 +3,9 @@
   title: "User Guide"
   pageNav: 3
 ---
-![Connectify](images/address_book_32.png)
-# Connectify User Guide 
 
+# Connectify User Guide 
+![Connectify](images/address_book_32.png)
 
 Connectify is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) 
 while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Connectify can get your 
