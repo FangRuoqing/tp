@@ -64,6 +64,7 @@ and use the features in Connectify.
 * [FAQ](#faq)
 * [Known Issues](#known-issues)
 * [Command Summary](#command-summary)
+* [Glossary](#glossary)
 
 <div style="page-break-after: always;"></div>
 
@@ -149,26 +150,6 @@ Attribute  | Description                                |  Required
 
 </box>
 
-**Commands:** <br>
-* [Viewing help](#viewing-help-help) 
-* [Adding a contact](#adding-a-person-add) 
-* [Listing all contact](#listing-all-persons-list) 
-* [Editing a contact](#editing-a-person-edit) 
-* [Finding a contact](#locating-persons-by-name-find) 
-* [Deleting a contact](#deleting-a-person-delete) 
-* [Tagging a company](#tagging-a-company-to-a-person-co) 
-* [Finding by company](#locating-persons-by-company-tag-findco) 
-* [Prioritising a contact](#prioritising-a-contact-prprioritylevel) 
-* [Filtering by priority](#filtering-contacts-by-priority-filter-prioritylevel) 
-* [Adding a meeting](#adding-a-meeting-to-a-person-mtg) 
-* [Listing contacts with meetings](#viewing-all-contacts-with-meetings-viewmtgs) 
-* [Adding a remark](#adding-a-remark-to-a-person-remark) 
-* [Listing number of contacts](#getting-the-number-of-contacts-count) 
-* [Starring a contact](#starring-a-contact-star) 
-* [Unstarring a contact](#removing-the-star-from-a-contact-unstar)
-* [Clearing all contacts](#clearing-all-entries-clear) 
-* [Exiting the program](#exiting-the-program-exit) 
-* [Data storage](#saving-the-data)
 
 ### Viewing help : `help`
 
