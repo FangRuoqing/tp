@@ -123,6 +123,7 @@ Attribute  | Description                                |  Required
 **Star**   | Importance of contact  | No  
 
 --------------------------------------------------------------------------------------------------------------------
+
 <div style="page-break-after: always;"></div>
 
 ## Features
