@@ -14,7 +14,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 
-public class FindMeetingCommandTest {
+public class ViewMeetingCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
@@ -23,8 +23,8 @@ public class FindMeetingCommandTest {
     public void execute_findMeetings_success() {
         expectedModel.updateFilteredPersonList(person -> !person.getMeeting().toString().isEmpty());
         CommandResult expectedCommandResult = new CommandResult(
-                FindMeetingCommand.MESSAGE_SUCCESS);
-        assertCommandSuccess(new FindMeetingCommand(), model, expectedCommandResult, expectedModel);
+                ViewMeetingCommand.MESSAGE_SUCCESS);
+        assertCommandSuccess(new ViewMeetingCommand(), model, expectedCommandResult, expectedModel);
         assertEquals(Arrays.asList(ALICE, BENSON), model.getFilteredPersonList());
     }
 
@@ -35,8 +35,8 @@ public class FindMeetingCommandTest {
         expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.updateFilteredPersonList(person -> !person.getMeeting().toString().isEmpty());
         CommandResult expectedCommandResult = new CommandResult(
-                FindMeetingCommand.MESSAGE_NO_CONTACTS_FOUND);
-        assertCommandSuccess(new FindMeetingCommand(), model, expectedCommandResult, expectedModel);
+                ViewMeetingCommand.MESSAGE_NO_CONTACTS_FOUND);
+        assertCommandSuccess(new ViewMeetingCommand(), model, expectedCommandResult, expectedModel);
         assertEquals(Arrays.asList(), model.getFilteredPersonList());
     }
 }
