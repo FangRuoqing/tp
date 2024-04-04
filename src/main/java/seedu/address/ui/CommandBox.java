@@ -8,6 +8,8 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
+import java.util.*;
+
 /**
  * The UI component that is responsible for receiving user command inputs.
  */
@@ -21,12 +23,20 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private TextField commandTextField;
 
+    private Stack<String> pastCommands;
+    private Stack<String> temp;
+
+    private boolean preIsUp;
+
     /**
      * Creates a {@code CommandBox} with the given {@code CommandExecutor}.
      */
     public CommandBox(CommandExecutor commandExecutor) {
         super(FXML);
         this.commandExecutor = commandExecutor;
+        this.pastCommands = new Stack<>();
+        this.temp = new Stack<>();
+        this.preIsUp = true;
         // calls #setStyleToDefault() whenever there is a change to the text of the command box.
         commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
     }
@@ -40,12 +50,18 @@ public class CommandBox extends UiPart<Region> {
         if (commandText.equals("")) {
             return;
         }
+        while (!temp.isEmpty()) {
+            pastCommands.push(temp.pop());
+        }
+        pastCommands.push(commandText);
+        preIsUp = true;
 
         try {
             commandExecutor.execute(commandText);
-            commandTextField.setText("");
         } catch (CommandException | ParseException e) {
             setStyleToIndicateCommandFailure();
+        } finally {
+            commandTextField.setText("");
         }
     }
 
@@ -80,6 +96,34 @@ public class CommandBox extends UiPart<Region> {
          * @see seedu.address.logic.Logic#execute(String)
          */
         CommandResult execute(String commandText) throws CommandException, ParseException;
+    }
+
+    public void handleUp() {
+        if (this.pastCommands.empty()) {
+            return;
+        }
+        String toDisplay = pastCommands.pop();
+        temp.push(toDisplay);
+        commandTextField.setText(toDisplay);
+        if (!preIsUp) {
+            preIsUp = true;
+            handleUp();
+        }
+        preIsUp = true;
+    }
+
+    public void handleDown() {
+        if (this.temp.empty()) {
+            return;
+        }
+        String toDisplay = temp.pop();
+        pastCommands.push(toDisplay);
+        commandTextField.setText(toDisplay);
+        if (preIsUp) {
+            preIsUp = false;
+            handleDown();
+        }
+        preIsUp = false;
     }
 
 }
