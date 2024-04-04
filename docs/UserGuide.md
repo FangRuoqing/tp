@@ -11,16 +11,6 @@ Connectify is a **desktop app for managing contacts, optimized for use via a Com
 while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Connectify can get your 
 contact management tasks done faster than traditional GUI apps.
 
-Connectify aims to assist users to enhance networking for future career prospects, 
-streamline the organization of contact information and effectively oversee professional relationships 
-in their network.
-
-### About
-This guide aims to assist users on getting started with Connectify, and familiarise them with the 
-features and commands of the app. Refer to the table of contents below for easy access to each step of the
-User Guide. If this is your first time using Connectify, the [Quick Start](#quick-start) and 
-[Command Summary](#command-summary) sections may be useful to begin with.
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## Table of Contents
