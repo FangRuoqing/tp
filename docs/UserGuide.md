@@ -170,7 +170,7 @@ Shows a message explaning how to access the help page.
 ![help message](images/helpMessage.png)
 
 Format: `help`
-
+    
 ### Adding a contact: `add`
 
 Adds a contact in Connectify.
