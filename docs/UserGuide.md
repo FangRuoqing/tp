@@ -124,6 +124,8 @@ Attribute  | Description                                |  Required
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Features
 
 <box type="info" seamless>
