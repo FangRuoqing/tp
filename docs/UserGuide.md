@@ -4,7 +4,8 @@
   pageNav: 3
 ---
 
-# Connectify User Guide
+# Connectify User Guide 
+![Connectify](images/address_book_32.png)
 
 Connectify is a **desktop application that optimises networking for your future career opportunities**. Connectify 
 seamlessly organizes contact details, efficiently manages your professional relationships and simplifies meeting planning.
@@ -51,8 +52,15 @@ and use the features in Connectify.
 **Tip:** This light bulb icon labelled 'Tip' provides you with special tips for you to be an expert with Connectify.
 </box>
 
-<!-- * Table of Contents -->
-<page-nav-print />
+--------------------------------------------------------------------------------------------------------------------
+
+## Table of Contents
+* [Quick Start](#quick-start)
+* [Contact Attributes Summary](#contact-attributes)
+* [Features](#features)
+* [FAQ](#faq)
+* [Known Issues](#known-issues)
+* [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -94,6 +102,22 @@ How to check?
 1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+## Contact Attributes
+
+Attribute  | Description                                |  Required
+-----------|--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------
+**Name**   | Name of the contact                        | Yes
+**Phone Number**  | Phone number of the contact                | Yes  
+**Email** | Email of the contact                       | No   
+**Address**   | Address of the contact                     | No   
+**Tag**   | Categories to sort the contact under       | No
+**Company Tag**  | Company of the contact                     | No
+**Priority**  | Level of priority, from NONE, MED and HIGH | No  
+**Remark** | Note added to a contact                    | No
+**Meeting**  | Scheduled meeting with a contact with a specified date and time | No                                 
+**Star**   | Importance of contact  | No  
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Features
 
@@ -118,6 +142,27 @@ How to check?
 
 </box>
 
+**Commands:** <br>
+* [Viewing help](#viewing-help--help) `help`
+* [Adding a contact](#adding-a-person--add) `add`
+* [Listing all contact](#listing-all-persons--list) `list`
+* [Editing a contact](#editing-a-person--edit) `edit`
+* [Finding a contact](#locating-persons-by-name--find) `find`
+* [Deleting a contact](#deleting-a-person--delete) `delete`
+* [Tagging a company](#tagging-a-company-to-a-person--co) `co`
+* [Finding by company](#locating-persons-by-company-tag--findco) ``
+* [Prioritising a contact](#prioritising-a-contact--prprioritylevel) `pr/PRIORITY_LEVEL`
+* [Filtering by priority](#filtering-contacts-by-priority--filter-prioritylevel) `filter-PRIORITY_LEVEL`
+* [Adding a meeting](#adding-a-meeting-to-a-person--mtg) `mtg`
+* [Listing contacts with meetings](#viewing-all-contacts-with-meetings--meetings) `meetings`
+* [Adding a remark](#adding-a-remark-to-a-person--remark) `remark`
+* [Listing number of contacts](#getting-the-number-of-contacts--count) `count`
+* [Starring a contact](#starring-a-contact--star) `star`
+* [Unstarring a contact](#removing-the-star-from-a-contact--unstar) `unstar`
+* [Clearing all contacts](#clearing-all-entries--clear) `clear`
+* [Exiting the program](#exiting-the-program--exit) `exit`
+* [Data storage](#saving-the-data)
+
 ### Viewing help : `help`
 
 Shows a message explaning how to access the help page.
@@ -125,8 +170,7 @@ Shows a message explaning how to access the help page.
 ![help message](images/helpMessage.png)
 
 Format: `help`
-
-
+    
 ### Adding a contact: `add`
 
 Adds a contact in Connectify.
@@ -354,6 +398,7 @@ to remove the star from is case-insensitive. <br>
   e.g `unstar John Doe` is the same as `unstar john doe`
 
 Examples:
+
 * `unstar Betsy` removes the star from the contact with the contact name `Betsy` in Connecitfy.
 
 ### Clearing all entries : `clear`
@@ -451,3 +496,5 @@ Action     | Format, Examples
 * **Priority Level**: A designation indicating the importance or urgency of a contact. Connectify supports priority levels such as high, medium, and none.
 
 * **Tag**: A label or keyword assigned to a a contact to facilitate categorization and organization. In Connectify, contacts can be tagged with keywords to group them based on shared characteristics.
+
+[Return to top](#connectify-user-guide)
