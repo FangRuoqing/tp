@@ -288,11 +288,6 @@ to remove the star from is case-insensitive.
 Examples:
 * `unstar Betsy` removes the star from the contact with the contact name `Betsy` in the address book.
 
-### Undoing the last command : `undo`
-
-Undoes the most recently added command by removing the most recently added contact.
-
-Format: `undo`
 
 ### Clearing all entries : `clear`
 
@@ -354,6 +349,5 @@ Action     | Format, Examples
 **Filter** | `filter-PRIORITY_LEVEL`<br> e.g., `filter-high`
 **Count**  | `count`
 **Star**   | `star NAME`<br> e.g., `star John Doe`
-**Undo**   | `undo`
 **List**   | `list`
 **Help**   | `help`
