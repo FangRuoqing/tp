@@ -3,21 +3,27 @@
   title: "User Guide"
   pageNav: 3
 ---
-
+![Connectify](images/address_book_32.png)
 # Connectify User Guide
 
 Connectify is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) 
 while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Connectify can get your 
 contact management tasks done faster than traditional GUI apps.
 
-<!-- * Table of Contents -->
-<page-nav-print />
+## Table of Contents
+* [Quick Start](#quick-start)
+* [Contact Attributes Summary](#contact-attributes)
+* [Features](#features)
+* [FAQ](#faq)
+* [Known Issues](#known-issues)
+* [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have Java `11` or above installed in your Computer. 
+    Refer to the [Oracle version](https://www.oracle.com/java/technologies/downloads/#java11) to download if needed.
 
 1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
 
@@ -87,6 +93,27 @@ Attribute  | Description                                |  Required
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
 
+**Commands:** <br>
+* [Viewing help](#viewing-help--help) `help`
+* [Adding a contact](#adding-a-person--add) `add`
+* [Listing all contact](#listing-all-persons--list) `list`
+* [Editing a contact](#editing-a-person--edit) `edit`
+* [Finding a contact](#locating-persons-by-name--find) `find`
+* [Deleting a contact](#deleting-a-person--delete) `delete`
+* [Tagging a company](#tagging-a-company-to-a-person--co) `co`
+* [Finding by company](#locating-persons-by-company-tag--findco) ``
+* [Prioritising a contact](#prioritising-a-contact--prprioritylevel) `pr/PRIORITY_LEVEL`
+* [Filtering by priority](#filtering-contacts-by-priority--filter-prioritylevel) `filter-PRIORITY_LEVEL`
+* [Adding a meeting](#adding-a-meeting-to-a-person--mtg) `mtg`
+* [Listing contacts with meetings](#viewing-all-contacts-with-meetings--meetings) `meetings`
+* [Adding a remark](#adding-a-remark-to-a-person--remark) `remark`
+* [Listing number of contacts](#getting-the-number-of-contacts--count) `count`
+* [Starring a contact](#starring-a-contact--star) `star`
+* [Unstarring a contact](#removing-the-star-from-a-contact--unstar) `unstar`
+* [Clearing all contacts](#clearing-all-entries--clear) `clear`
+* [Exiting the program](#exiting-the-program--exit) `exit`
+* [Data storage](#saving-the-data)
+
 ### Viewing help : `help`
 
 Shows a message explaning how to access the help page.
@@ -94,7 +121,6 @@ Shows a message explaning how to access the help page.
 ![help message](images/helpMessage.png)
 
 Format: `help`
-
 
 ### Adding a person: `add`
 
@@ -365,5 +391,6 @@ Action     | Format, Examples
 **Filter** | `filter-PRIORITY_LEVEL`<br> e.g., `filter-high`
 **Count**  | `count`
 **Star**   | `star NAME`<br> e.g., `star John Doe`
+**Unstar**   | `unstar NAME`<br> e.g., `unstar John Doe`
 **List**   | `list`
 **Help**   | `help`
