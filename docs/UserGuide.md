@@ -27,7 +27,7 @@ With Connectify, networking becomes *easy, effective and efficient*.
 
 **Streamline Your Connections, Accelerate Your Success.**
 
-What are you waiting for? Download Connectify here now, and **unlock your full networking potential**!
+What are you waiting for? Download Connectify [here](https://github.com/AY2324S2-CS2103T-F14-4/tp/releases/tag/v1.3(final)) now, and **unlock your full networking potential**!
 
 --------------------------------------------------------------------------------------------------------------------
 ## How to use this guide
@@ -42,14 +42,17 @@ Otherwise, if you are already familiar with Connectify and forgot some commands,
 [Command Summary](#command-summary).
 
 Here are some of the icons that we use to give you extra information about our features:
-<box type="info=" seamless>
 
-**Note:** This 'i' icon labelled 'Note' provides you with more detailed information about how to navigate 
+<box type="info" seamless>
+
+**Note:** This 'i' icon labelled 'Note' provides you with more detailed information about how to navigate
 and use the features in Connectify.
-</box>
-<box type="tip=" seamless>
 
-**Tip:** This light bulb icon labelled 'Tip' provides you with special tips for you to be an expert with Connectify.
+</box>
+
+<box type="tip" seamless>
+
+**Tip:** This light bulb icon labelled 'Tip' provides you with special tips for you to be an expert with Connectify. <br>
 </box>
 
 --------------------------------------------------------------------------------------------------------------------
@@ -61,6 +64,8 @@ and use the features in Connectify.
 * [FAQ](#faq)
 * [Known Issues](#known-issues)
 * [Command Summary](#command-summary)
+
+<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -150,11 +155,11 @@ Attribute  | Description                                |  Required
 * [Finding a contact](#locating-persons-by-name--find) `find`
 * [Deleting a contact](#deleting-a-person--delete) `delete`
 * [Tagging a company](#tagging-a-company-to-a-person--co) `co`
-* [Finding by company](#locating-persons-by-company-tag--findco) ``
+* [Finding by company](#locating-persons-by-company-tag--findco) `findco`
 * [Prioritising a contact](#prioritising-a-contact--prprioritylevel) `pr/PRIORITY_LEVEL`
 * [Filtering by priority](#filtering-contacts-by-priority--filter-prioritylevel) `filter-PRIORITY_LEVEL`
 * [Adding a meeting](#adding-a-meeting-to-a-person--mtg) `mtg`
-* [Listing contacts with meetings](#viewing-all-contacts-with-meetings--meetings) `meetings`
+* [Listing contacts with meetings](#viewing-all-contacts-with-meetings--viewmtgs) `viewmtgs`
 * [Adding a remark](#adding-a-remark-to-a-person--remark) `remark`
 * [Listing number of contacts](#getting-the-number-of-contacts--count) `count`
 * [Starring a contact](#starring-a-contact--star) `star`
@@ -181,7 +186,7 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
 **Note:** In Connectify, contact names are case-insensitive and no duplicates are allowed. Hence `John Lim` is considered to be the
 same person as `john lim`. As a result, you will see an error message if you try to add a contact with the same name as an existing contact,
-even if it is in different case.<br>
+even if it is in different case.
 </box>
 <box type="tip" seamless>
 
@@ -235,7 +240,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
+* `find alex david` returns `Alex Yeoh`, `David Li`<br><br>
+
   ![result for 'find james betsy'](images/findJamesBetsyResult.png)
 
 ### Deleting a person : `delete`
