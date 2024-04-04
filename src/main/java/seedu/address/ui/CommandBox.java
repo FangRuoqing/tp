@@ -8,7 +8,7 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
-import java.util.*;
+import java.util.Stack;
 
 /**
  * The UI component that is responsible for receiving user command inputs.
@@ -97,7 +97,9 @@ public class CommandBox extends UiPart<Region> {
          */
         CommandResult execute(String commandText) throws CommandException, ParseException;
     }
-
+    /**
+     * Allow User to go to Previous Command by pressing the up arrow
+     */
     public void handleUp() {
         if (this.pastCommands.empty()) {
             return;
@@ -111,6 +113,10 @@ public class CommandBox extends UiPart<Region> {
         }
         preIsUp = true;
     }
+
+    /**
+     * Allow User to go to Previous Command by pressing the down arrow
+     */
 
     public void handleDown() {
         if (this.temp.empty()) {
