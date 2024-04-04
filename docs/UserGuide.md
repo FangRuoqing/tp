@@ -475,7 +475,6 @@ Action     | Format, Examples
 **Count**  | `count`
 **Star**   | `star NAME`<br> e.g., `star John Doe`
 **Unstar**   | `unstar NAME`<br> e.g., `unstar John Doe`
-**List**   | `list`
 **Clear**  | `clear`
 **Exit**   | `exit`
 **Help**   | `help`
