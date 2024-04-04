@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MEETING;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TIME;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -18,9 +19,12 @@ public class AddMeetingCommandParser implements Parser<AddMeetingCommand> {
 
     private static String parseErrorMsg = "Oops, please input the meeting command in the following format:\n"
             + "mtg <contact_name> m/<mtg_description> time/dd-MM-YYYY HHmm-HHmm\n"
-            + "Example: mtg alex m/interview t/23-03-2024 1400-1500";
+            + "Example: mtg alex m/interview time/23-03-2024 1400-1500";
 
     private static String emptyDesc = "Oops, please input the description of your meeting.\n"
+            + "Example: mtg alex m/interview time/23-03-2024 1400-1500";
+
+    private static String emptyTime = "Oops, please input the timing as well, in HHmm-HHmm format.\n"
             + "Example: mtg alex m/interview time/23-03-2024 1400-1500";
 
     /**
@@ -30,29 +34,28 @@ public class AddMeetingCommandParser implements Parser<AddMeetingCommand> {
      */
     public AddMeetingCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_MEETING);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_MEETING, PREFIX_TIME);
 
         String contactName;
         contactName = argMultimap.getPreamble();
 
         String meeting = argMultimap.getValue(PREFIX_MEETING).orElse("");
+        String time = argMultimap.getValue(PREFIX_TIME).orElse("");
         if (meeting.isEmpty()) {
-            return new AddMeetingCommand(contactName, new Meeting("", "", "", ""));
+            throw new ParseException(emptyDesc);
+        }
+        if (time.isEmpty()) {
+            throw new ParseException(emptyTime);
         }
         try {
-            String[] parts = meeting.split("time/");
-            String desc = parts[0].trim();
-            if (desc.isEmpty()) {
-                throw new ParseException(emptyDesc);
-            }
-            String timing = parts[1].trim();
+            String timing = time.trim();
             String[] dateTime = timing.split(" ");
             String date = dateTime[0].trim();
             String[] startEnd = dateTime[1].split("-");
             String start = startEnd[0].trim();
             String end = startEnd[1].trim();
 
-            return new AddMeetingCommand(contactName, new Meeting(desc, date, start, end));
+            return new AddMeetingCommand(contactName, new Meeting(meeting, date, start, end));
         } catch (DateTimeParseException | ArrayIndexOutOfBoundsException e) {
             throw new ParseException(parseErrorMsg);
         }

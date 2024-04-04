@@ -22,9 +22,9 @@ public class CompanyCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Adds a company to the person identified by the contact name "
             + "Existing company will be overwritten by the input.\n"
-            + "c/ [COMPANY_NAME]\n"
-            + "Example: " + COMMAND_WORD + " 1 "
-            + "c/ Friends";
+            + "co [CONTACT_NAME] + c/[COMPANY_NAME]\n"
+            + "Example: " + COMMAND_WORD + " Alex Yeoh "
+            + "c/Friends";
 
     public static final String MESSAGE_ADD_COMPANY_SUCCESS = "Tagged %1$s's company as %2$s";
     public static final String MESSAGE_DELETE_COMPANY_SUCCESS = "Removed the company tag from %1$s's contact";
