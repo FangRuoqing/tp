@@ -27,7 +27,7 @@ With Connectify, networking becomes *easy, effective and efficient*.
 
 **Streamline Your Connections, Accelerate Your Success.**
 
-What are you waiting for? Download Connectify here now, and **unlock your full networking potential**!
+What are you waiting for? Download Connectify [here](https://github.com/AY2324S2-CS2103T-F14-4/tp/releases/tag/v1.3(final)) now, and **unlock your full networking potential**!
 
 --------------------------------------------------------------------------------------------------------------------
 ## How to use this guide
@@ -150,11 +150,11 @@ Attribute  | Description                                |  Required
 * [Finding a contact](#locating-persons-by-name--find) `find`
 * [Deleting a contact](#deleting-a-person--delete) `delete`
 * [Tagging a company](#tagging-a-company-to-a-person--co) `co`
-* [Finding by company](#locating-persons-by-company-tag--findco) ``
+* [Finding by company](#locating-persons-by-company-tag--findco) `findco`
 * [Prioritising a contact](#prioritising-a-contact--prprioritylevel) `pr/PRIORITY_LEVEL`
 * [Filtering by priority](#filtering-contacts-by-priority--filter-prioritylevel) `filter-PRIORITY_LEVEL`
 * [Adding a meeting](#adding-a-meeting-to-a-person--mtg) `mtg`
-* [Listing contacts with meetings](#viewing-all-contacts-with-meetings--meetings) `meetings`
+* [Listing contacts with meetings](#viewing-all-contacts-with-meetings--viewmtgs) `viewmtgs`
 * [Adding a remark](#adding-a-remark-to-a-person--remark) `remark`
 * [Listing number of contacts](#getting-the-number-of-contacts--count) `count`
 * [Starring a contact](#starring-a-contact--star) `star`
