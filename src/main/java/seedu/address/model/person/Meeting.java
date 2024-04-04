@@ -44,6 +44,9 @@ public class Meeting {
 
     @Override
     public boolean equals(Object other) {
+        if (desc.equals(((Meeting) other).desc) && this.date == null && ((Meeting) other).date == null) {
+            return true;
+        }
         return other == this // short circuit if same object
                 || (other instanceof Meeting // instanceof handles nulls
                 && desc.equals(((Meeting) other).desc)

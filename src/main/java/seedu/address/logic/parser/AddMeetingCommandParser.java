@@ -41,10 +41,11 @@ public class AddMeetingCommandParser implements Parser<AddMeetingCommand> {
 
         String meeting = argMultimap.getValue(PREFIX_MEETING).orElse("");
         String time = argMultimap.getValue(PREFIX_TIME).orElse("");
-        if (meeting.isEmpty()) {
+        if (meeting.isEmpty() && !time.isEmpty()) {
             throw new ParseException(emptyDesc);
-        }
-        if (time.isEmpty()) {
+        } else if (meeting.isEmpty()) {
+            return new AddMeetingCommand(contactName, new Meeting("", "", "", ""));
+        } else if (time.isEmpty()) {
             throw new ParseException(emptyTime);
         }
         try {
