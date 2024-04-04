@@ -46,6 +46,22 @@ contact management tasks done faster than traditional GUI apps.
 1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+## Contact Attributes
+
+Attribute  | Description                                |  Required
+-----------|--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------
+**Name**   | Name of the contact                        | Yes
+**Phone Number**  | Phone number of the contact                | Yes  
+**Email** | Email of the contact                       | No   
+**Address**   | Address of the contact                     | No   
+**Tag**   | Categories to sort the contact under       | No
+**Company Tag**  | Company of the contact                     | No
+**Priority**  | Level of priority, from NONE, MED and HIGH | No  
+**Remark** | Note added to a contact                    | No
+**Meeting**  | Scheduled meeting with a contact with a specified date and time | No                                 
+**Star**   | Importance of contact  | No  
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Features
 
