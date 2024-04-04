@@ -37,8 +37,8 @@ Welcome to Connectify! If you are new to Connectify, you may wish to start setti
 If you have finished setting up the application, great job! You may look through the detailed guide of how to navigate each of our
 [features](#features).
 
-Otherwise, if you are already familiar with Connectify and forgot some commands, you may refer to our comprehensive Command Summary
-[here](#command-summary).
+Otherwise, if you are already familiar with Connectify and forgot some commands, you may refer to our comprehensive
+[Command Summary](#command-summary).
 
 Here are some of the icons that we use to give you extra information about our features:
 <box type="info=" seamless>
@@ -71,7 +71,7 @@ How to check?
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Connectify application.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar addressbook.jar` command to run the application.<br>
+1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar connectify.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -415,24 +415,24 @@ _Details coming soon ..._
 
 Action     | Format, Examples
 -----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**List**   | `list`
-**Edit**   | `edit NAME [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit James n/James Lee e/jameslee@example.com`
-**Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**Delete** | `delete NAME`<br> e.g., `delete John Doe`
-**Add Company Tag**  | `co NAME c/COMPANY_NAME`<br> e.g., `co James Doe c/TikTok`
-**Find by Company Tag**  | `findco COMPANY_NAME`<br> e.g., `findco TikTok`
-**Assign Priority**  | `pr/PRIORITY_LEVEL NAME`<br> e.g., `pr/high Alex Tan`
-**Filter by Priority** | `filter-PRIORITY_LEVEL`<br> e.g., `filter-high`
-**Add Meeting**  | `mtg NAME m/MEETING_DESCRIPTION time/MEETING_TIME`<br> e.g., `mtg Alex Tan m/interview time/05-11-2024 0800-0930`
-**View Meetings**  | `viewmtgs`
-**Add Remark**  | `remark NAME r/REMARK_DESCRIPTIONE`<br> e.g., `remark john doe r/met him at the career fair`
-**Count**  | `count`
-**Star**   | `star NAME`<br> e.g., `star John Doe`
-**Unstar**   | `unstar NAME`<br> e.g., `unstar John Doe`
-**Clear**  | `clear`
-**Exit**   | `exit`
-**Help**   | `help`
+[**Add**](#adding-a-contact--add)    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+[**List**](#listing-all-persons--list)   | `list`
+[**Edit**](#editing-a-person--edit)   | `edit NAME [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit James n/James Lee e/jameslee@example.com`
+[**Find**](#finding-contacts-by-their-contact-names--find)   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+[**Delete**](#deleting-a-person--delete) | `delete NAME`<br> e.g., `delete John Doe`
+[**Add Company Tag**](#adding-a-company-tag-to-a-contact--co)  | `co NAME c/COMPANY_NAME`<br> e.g., `co James Doe c/TikTok`
+[**Find by Company Tag**](#locating-persons-by-company-tag--findco)  | `findco COMPANY_NAME`<br> e.g., `findco TikTok`
+[**Assign Priority**](#prioritising-a-contact--prprioritylevel)  | `pr/PRIORITY_LEVEL NAME`<br> e.g., `pr/high Alex Tan`
+[**Filter by Priority**](#filtering-contacts-by-priority--filter-prioritylevel) | `filter-PRIORITY_LEVEL`<br> e.g., `filter-high`
+[**Add Meeting**](#adding-a-meeting-to-a-person--mtg)  | `mtg NAME m/MEETING_DESCRIPTION time/MEETING_TIME`<br> e.g., `mtg Alex Tan m/interview time/05-11-2024 0800-0930`
+[**View Meetings**](#viewing-all-contacts-with-meetings--viewmtgs)  | `viewmtgs`
+[**Add Remark**](#adding-a-remark-to-a-person--remark)  | `remark NAME r/REMARK_DESCRIPTIONE`<br> e.g., `remark john doe r/met him at the career fair`
+[**Count**](#getting-the-number-of-contacts--count)  | `count`
+[**Star**](#starring-a-contact--star)   | `star NAME`<br> e.g., `star John Doe`
+[**Unstar**](#removing-the-star-from-a-contact--unstar)   | `unstar NAME`<br> e.g., `unstar John Doe`
+[**Clear**](#clearing-all-entries--clear)  | `clear`
+[**Exit**](#exiting-the-program--exit)   | `exit`
+[**Help**](#viewing-help--help)   | `help`
 
 --------------------------------------------------------------------------------------------------------------------
 
