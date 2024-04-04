@@ -28,6 +28,12 @@ public class AddMeetingCommandParserTest {
     }
 
     @Test
+    public void parse_missingTiming_throwsParseException() {
+        String args = "John m/interview";
+        assertThrows(ParseException.class, () -> parser.parse(args));
+    }
+
+    @Test
     public void parse_invalidDate_throwsParseException() {
         String args = "John m/Meeting time/2024-03-23 1400-1500";
         assertThrows(ParseException.class, () -> parser.parse(args));
