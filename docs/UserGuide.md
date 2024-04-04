@@ -332,6 +332,9 @@ _Details coming soon ..._
 **Q**: Can I run Connectify on any operating system?<br>
 **A**: Yes, as long as you have Java 11 or above installed, Connectify should run on any operating system that supports Java.
 
+**Q**: Can I use Connectify offline?<br>
+**A**: Yes, Connectify is a desktop application, so it can be used offline once it's downloaded and installed on your computer.
+
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Connectify home folder.
 
@@ -379,3 +382,5 @@ Action     | Format, Examples
 * **Parameter**: A variable in a command that represents a value that the command expects you to provide.
 
 * **Priority Level**: A designation indicating the importance or urgency of a contact. Connectify supports priority levels such as high, medium, and none.
+
+* **Tag**: A label or keyword assigned to a a contact to facilitate categorization and organization. In Connectify, contacts can be tagged with keywords to group them based on shared characteristics.
