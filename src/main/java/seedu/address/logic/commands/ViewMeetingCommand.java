@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.model.Model;
 
 /**
- * Finds and lists all persons with meetings in address book.
+ * Finds and lists all contacts with meetings in address book.
  */
 public class ViewMeetingCommand extends Command {
 
