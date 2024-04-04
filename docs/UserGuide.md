@@ -459,8 +459,8 @@ Action                                                                          
  [**Delete**](#deleting-a-person-delete)                                       | `delete NAME`<br> e.g., `delete John Doe`
  [**Add Company Tag**](#adding-a-company-tag-to-a-contact-co)                  | `co NAME c/COMPANY_NAME`<br> e.g., `co James Doe c/TikTok`
  [**Find by Company Tag**](#locating-persons-by-company-tag-findco)            | `findco COMPANY_NAME`<br> e.g., `findco TikTok`
- [**Assign Priority**](#prioritising-a-contact-prprioritylevel)                | `pr/PRIORITY_LEVEL NAME`<br> e.g., `pr/high Alex Tan`
- [**Filter by Priority**](#filtering-contacts-by-priority-filter-prioritylevel) | `filter-PRIORITY_LEVEL`<br> e.g., `filter-high`
+ [**Assign Priority**](#prioritising-a-contact-pr-priority-level)                | `pr/PRIORITY_LEVEL NAME`<br> e.g., `pr/high Alex Tan`
+ [**Filter by Priority**](#filtering-contacts-by-priority-filter-priority-level) | `filter-PRIORITY_LEVEL`<br> e.g., `filter-high`
  [**Add Meeting**](#adding-a-meeting-to-a-person-mtg)                          | `mtg NAME m/MEETING_DESCRIPTION time/MEETING_TIME`<br> e.g., `mtg Alex Tan m/interview time/05-11-2024 0800-0930`
  [**View Meetings**](#viewing-all-contacts-with-meetings-viewmtgs)             | `viewmtgs`
  [**Add Remark**](#adding-a-remark-to-a-person-remark)                         | `remark NAME r/REMARK_DESCRIPTIONE`<br> e.g., `remark john doe r/met him at the career fair`
