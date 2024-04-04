@@ -69,6 +69,8 @@ and use the features in Connectify.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer. <br>
@@ -488,6 +490,8 @@ Action                                                                          
  [**Help**](#viewing-help--help)                                                | `help` |
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Glossary
 
