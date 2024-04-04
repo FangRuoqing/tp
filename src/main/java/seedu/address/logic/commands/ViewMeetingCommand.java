@@ -7,9 +7,9 @@ import seedu.address.model.Model;
 /**
  * Finds and lists all persons with meetings in address book.
  */
-public class FindMeetingCommand extends Command {
+public class ViewMeetingCommand extends Command {
 
-    public static final String COMMAND_WORD = "meetings";
+    public static final String COMMAND_WORD = "viewmtgs";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all meetings with "
             + "the respective contacts and displays them as a list.\n"
