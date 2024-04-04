@@ -31,6 +31,8 @@ public class AddMeetingCommand extends Command {
     public static final String MESSAGE_ADD_MEETING_WARN = "Changed the existing meeting with %1$s.\n"
             + "Previous meeting details: %3$s\n" + "Updated meeting details: %2$s";
     public static final String MESSAGE_DELETE_MEETING_SUCCESS = "Removed the meeting with %1$s.";
+    public static final String MESSAGE_DELETE_MEETING_FAILURE =
+            "Error! %1$s's contact does not have a meeting to remove.";
 
     public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
             + "meeting.";
@@ -39,6 +41,7 @@ public class AddMeetingCommand extends Command {
     private static Logger logger = Logger.getLogger("MeetingLogger");
     private final String name;
     private final Meeting meeting;
+    private String message;
 
     /**
      * @param name  of the person in the filtered person list to edit the meeting
@@ -71,6 +74,16 @@ public class AddMeetingCommand extends Command {
             throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
         }
         String prevMeeting = personToEdit.getMeeting().toString();
+
+        if (meeting.toString().isEmpty()) {
+            if (!prevMeeting.isEmpty()) {
+                message = MESSAGE_DELETE_MEETING_SUCCESS;
+            } else {
+                throw new CommandException(String.format(MESSAGE_DELETE_MEETING_FAILURE, name));
+            }
+        } else {
+            message = MESSAGE_ADD_MEETING_SUCCESS;
+        }
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), personToEdit.getCompany(), meeting, personToEdit.getPriority(),
