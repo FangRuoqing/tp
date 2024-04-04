@@ -391,8 +391,17 @@ _Details coming soon ..._
 
 ## FAQ
 
+**Q**: Can I run Connectify on any operating system?<br>
+**A**: Yes, as long as you have Java 11 or above installed, Connectify should run on any operating system that supports Java.
+
+**Q**: Can I use Connectify offline?<br>
+**A**: Yes, Connectify is a desktop application, so it can be used offline once it's downloaded and installed on your computer.
+
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Connectify home folder.
+
+**Q**: How do I handle data storage and saving?<br>
+**A**: Connectify automatically saves contact data to a JSON file located in the same directory as the jar file. There's no need to save manually as changes are saved automatically.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -424,3 +433,21 @@ Action     | Format, Examples
 **Clear**  | `clear`
 **Exit**   | `exit`
 **Help**   | `help`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Glossary
+
+* **CLI** (Command Line Interface): A text-based interface used for interacting with software through commands typed into a terminal or console.
+
+* **GUI** (Graphical User Interface): A visual way of interacting with software using graphical elements like windows, icons, and buttons.
+
+* **JAR** (Java ARchive): A file format used for aggregating many files into one archive, particularly used for distributing Java programs or libraries.
+
+* **JSON** (JavaScript Object Notation): A lightweight data-interchange format used for storing and exchanging data. It is human-readable and easy for machines to parse and generate.
+
+* **Parameter**: A variable in a command that represents a value that the command expects you to provide.
+
+* **Priority Level**: A designation indicating the importance or urgency of a contact. Connectify supports priority levels such as high, medium, and none.
+
+* **Tag**: A label or keyword assigned to a a contact to facilitate categorization and organization. In Connectify, contacts can be tagged with keywords to group them based on shared characteristics.
