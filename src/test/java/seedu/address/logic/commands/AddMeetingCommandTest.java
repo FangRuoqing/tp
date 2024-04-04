@@ -97,6 +97,16 @@ public class AddMeetingCommandTest {
     }
 
     @Test
+    public void execute_PersonWithNoCompanyDeleteCoFailure_throwsCommandException() {
+        Person thirdPerson = model.getFilteredPersonList().get(INDEX_THIRD_PERSON.getZeroBased());
+        String thirdPersonName = thirdPerson.getName().fullName;
+        AddMeetingCommand addMeetingCommand = new AddMeetingCommand(thirdPersonName,
+                new Meeting("", "", "", ""));
+        assertCommandFailure(addMeetingCommand, model, String.format(AddMeetingCommand.MESSAGE_DELETE_MEETING_FAILURE,
+                thirdPersonName));
+    }
+
+    @Test
     public void execute_invalidPerson_throwsCommandException() {
         AddMeetingCommand addMeetingCommand = new AddMeetingCommand("ABC",
                 new Meeting("Networking Event", "11-04-2024", "1400", "1600"));
