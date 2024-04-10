@@ -24,11 +24,15 @@ public class AddMeetingCommand extends Command {
             + ": Adds a meeting to the person identified by the contact name.\n"
             + "mtg [CONTACT_NAME] m/[MTG_DESC] time/[TIMING]\n"
             + "Example: " + COMMAND_WORD + " Alex Tan "
-            + "m/Interview t/23-03-2024 1600-1700";
+            + "m/Interview time/23-03-2024 1600-1700";
 
     public static final String MESSAGE_ADD_MEETING_SUCCESS = "Added the meeting with %1$s. The meeting details "
             + "are as follows:\n" + "%2$s\n";
+    public static final String MESSAGE_ADD_MEETING_WARN = "Changed the existing meeting with %1$s.\n"
+            + "Previous meeting details: %3$s\n" + "Updated meeting details: %2$s";
     public static final String MESSAGE_DELETE_MEETING_SUCCESS = "Removed the meeting with %1$s.";
+    public static final String MESSAGE_DELETE_MEETING_FAILURE =
+            "Error! %1$s's contact does not have a meeting to remove.";
 
     public static final String MESSAGE_PERSON_NOT_FOUND = "Oops, %1$s's contact does not exist. Unable to add "
             + "meeting.";
@@ -37,6 +41,7 @@ public class AddMeetingCommand extends Command {
     private static Logger logger = Logger.getLogger("MeetingLogger");
     private final String name;
     private final Meeting meeting;
+    private String message;
 
     /**
      * @param name  of the person in the filtered person list to edit the meeting
@@ -68,6 +73,17 @@ public class AddMeetingCommand extends Command {
         if (personToEdit == null) {
             throw new CommandException(String.format(MESSAGE_PERSON_NOT_FOUND, name));
         }
+        String prevMeeting = personToEdit.getMeeting().toString();
+
+        if (meeting.toString().isEmpty()) {
+            if (!prevMeeting.isEmpty()) {
+                message = MESSAGE_DELETE_MEETING_SUCCESS;
+            } else {
+                throw new CommandException(String.format(MESSAGE_DELETE_MEETING_FAILURE, name));
+            }
+        } else {
+            message = MESSAGE_ADD_MEETING_SUCCESS;
+        }
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), personToEdit.getCompany(), meeting, personToEdit.getPriority(),
@@ -75,7 +91,7 @@ public class AddMeetingCommand extends Command {
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(generateSuccessMessage(editedPerson));
+        return new CommandResult(generateSuccessMessage(editedPerson, prevMeeting));
     }
 
     /**
@@ -83,9 +99,10 @@ public class AddMeetingCommand extends Command {
      * the meeting is added to or removed from
      * {@code personToEdit}.
      */
-    private String generateSuccessMessage(Person personToEdit) {
-        String message = !meeting.toString().isEmpty() ? MESSAGE_ADD_MEETING_SUCCESS : MESSAGE_DELETE_MEETING_SUCCESS;
-        String result = String.format(message, personToEdit.getName(), meeting.toString());
+    private String generateSuccessMessage(Person personToEdit, String prevMeeting) {
+        String message = !meeting.toString().isEmpty() ? (prevMeeting.isEmpty() ? MESSAGE_ADD_MEETING_SUCCESS
+                : MESSAGE_ADD_MEETING_WARN) : MESSAGE_DELETE_MEETING_SUCCESS;
+        String result = String.format(message, personToEdit.getName(), meeting.toString(), prevMeeting);
         return result;
     }
 

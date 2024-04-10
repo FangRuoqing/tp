@@ -22,8 +22,22 @@ public class AddMeetingCommandParserTest {
     }
 
     @Test
+    public void parse_validArgs_returnsDeleteMeetingCommand() throws ParseException {
+        String args = "John m/";
+        AddMeetingCommand expectedCommand = new AddMeetingCommand("John",
+                new Meeting("", "", "", ""));
+        assertEquals(expectedCommand, parser.parse(args));
+    }
+
+    @Test
     public void parse_missingDescription_throwsParseException() {
         String args = "John m/ time/23-03-2024 1400-1500";
+        assertThrows(ParseException.class, () -> parser.parse(args));
+    }
+
+    @Test
+    public void parse_missingTiming_throwsParseException() {
+        String args = "John m/interview";
         assertThrows(ParseException.class, () -> parser.parse(args));
     }
 

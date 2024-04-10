@@ -8,7 +8,7 @@ import seedu.address.model.person.CompanyContainsKeywordsPredicate;
 
 /**
  * Finds and lists all persons in address book whose company tag contains any of the argument keywords.
- * Keyword matching is case insensitive.
+ * Keyword matching is case-insensitive.
  */
 public class FindCompanyCommand extends Command {
 
@@ -17,7 +17,7 @@ public class FindCompanyCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all contacts with company tag containing "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + "TikTok";
+            + "Example: " + COMMAND_WORD + " TikTok";
 
     public static final String MESSAGE_FIND_COMPANY_SUCCESS = "Found %1$d %2$s with matching company tag(s).";
 
