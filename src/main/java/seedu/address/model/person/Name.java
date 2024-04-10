@@ -16,7 +16,7 @@ public class Name {
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String VALIDATION_REGEX = "[\\p{Alnum}/][\\p{Alnum} /]*";
 
     public final String fullName;
 
@@ -35,6 +35,9 @@ public class Name {
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidName(String test) {
+        if (test.equals("/")) {
+            return false;
+        }
         return test.matches(VALIDATION_REGEX);
     }
 
