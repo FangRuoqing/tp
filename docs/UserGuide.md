@@ -286,7 +286,8 @@ Format: `pr/PRIORITY_LEVEL NAME`
 
 * The specified `NAME` of the contact to assign the priority level to is case-insensitive. <br>
 e.g `pr/high Alex Tan` is the same as `pr/high alex tan`
-* Acceptable values for PRIORITY_LEVEL are `high`, `med` and `none`
+* Acceptable values for `PRIORITY_LEVEL` are `high`, `med` and `none`. Entering any other values would 
+be considered unknown commands.
 * `pr/high NAME` assigns the `high` priority level to the specified contact.
 * `pr/med NAME` assigns the `medium` priority level to the specified contact.
 * `pr/none NAME` removes the priority level from the specified contact. <br>
@@ -299,11 +300,13 @@ Examples:
 
 ### Filtering contacts by priority : `filter-PRIORITY_LEVEL`
 
-Filters the contacts in Connecitfy by the specified priority level.
+Filters the contacts in Connectify by the specified priority level.
 
 Format: `filter-PRIORITY_LEVEL`
 
-* Acceptable values for PRIORITY_LEVEL are high and med.
+* Acceptable values for `PRIORITY_LEVEL` are high and med.
+* As the purpose of filtering by priority is so that users can easily identify 
+and focus on only important contacts, filtering by priority level `none` is not an option.
 
 Examples:
 * `filter-high` returns a list of contacts with high priority.
