@@ -402,6 +402,24 @@ Exits the program.
 
 Format: `exit`
 
+### Go to previous commands: Press UpperArrow icon(PgUp)/ Press DownArrow icon(PgDn)
+Suppose the commands entered are: 
+Command 1: list
+Command 2: edit John Doe n/ John
+Command 3: edit Alex Yeoh p/ 23456789
+
+After executing Command 3,  
+Pressing PgUp once will display: edit Alex Yeoh p/ 23456789
+Pressing PgUp again will display: edit John Doe n/ John
+Pressing PgUp once more will display: list
+Further pressing PgUp will not change the command box content as it reaches the earliest command.
+
+After navigating up, pressing PgDn once will display: edit John Doe n/ John
+Pressing PgDn again will display: edit Alex Yeoh p/ 23456789
+Pressing PgDn once more will display: list
+Further pressing PgDn will not change the command box content as it reaches the latest command.
+
+
 ### Saving the data
 
 The address book data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
