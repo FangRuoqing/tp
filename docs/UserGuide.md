@@ -202,7 +202,7 @@ Format: `list`
 
 ### Editing a person : `edit`
 
-Edits an existing contact in Connectify.
+Edits an existing contact shown in the displayed contact list.
 
 Format: `edit NAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
@@ -243,7 +243,7 @@ Examples:
 
 ### Deleting a person : `delete`
 
-Deletes the specified contact from Connectify.
+Deletes the specified contact shown in the displayed contact list.
 
 Format: `delete NAME`
 
@@ -255,7 +255,7 @@ Examples:
 
 ### Adding a company tag to a contact : `co`
 
-Tags the specified company name to the specified contact.
+Tags the specified company name to the specified contact shown in the displayed contact list.
 
 Format: `co NAME c/COMPANY_NAME`
 
@@ -294,7 +294,8 @@ Examples:
 
 ### Prioritising a contact : `pr/PRIORITY_LEVEL`
 
-Assigns the specified priority level to the specified contact or removes the priority level from the specified contact.
+Assigns the specified priority level to the specified contact or removes the priority level from the specified contact
+shown in the displayed contact list. <br>
 This command is aimed at assigning formal priority levels to contacts based on their importance or urgency.
 Priorities help you manage your contacts in a more structured way,
 especially in professional or organizational settings.
@@ -331,7 +332,7 @@ Examples:
 
 ### Adding a meeting to a person : `mtg`
 
-Adds a meeting with a description and a date and time to the specified person in Connecitfy.
+Adds a meeting with a description and a date and time to the specified person shown in the displayed contact list.
 
 Format: `mtg NAME m/MEETING_DESCRIPTION time/MEETING_TIME`
 
@@ -362,7 +363,7 @@ Format: `viemtgs`
 
 ### Adding a remark to a person : `remark`
 
-Adds the specified remark to the specified contact.
+Adds the specified remark to the specified contact shown in the displayed contact list.
 
 Format: `remark NAME r/REMARK_DESCRIPTION`
 
@@ -385,7 +386,7 @@ Shows the total number of contacts you have in Connecitfy.
 Format: `count`
 
 ### Starring a contact : `star`
-
+Stars the specific contact shown in the displayed contact list. <br>
 The star command is designed to mark a contact with a star, indicating informal significance or personal preference.
 It's a way to highlight certain contacts that you consider important or frequently interact with, such as close friends,
 and frequent collaborators.
@@ -400,7 +401,7 @@ Examples:
 
 ### Removing the star from a contact : `unstar`
 
-Removes the star from the specified contact in Connecitfy.
+Removes the star from the specified contact shown in the displayed contact list.
 
 Format: `unstar NAME`
 
