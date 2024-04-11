@@ -402,7 +402,7 @@ Exits the program.
 
 Format: `exit`
 
-### Go to previous commands: Press UpperArrow icon(PgUp)/ Press DownArrow icon(PgDn)
+### Go to previous commands: Press PgUp(UpperArrow) button / Press PgDn(DownArrow) button on your computer keyboard
 Suppose the commands entered are: 
 Command 1: list
 Command 2: edit John Doe n/John
@@ -485,7 +485,6 @@ Action                                                                          
  [**Star**](#starring-a-contact-star)                                          | `star NAME`<br> e.g., `star John Doe`
  [**Unstar**](#removing-the-star-from-a-contact-unstar)                        | `unstar NAME`<br> e.g., `unstar John Doe`
  [**Clear**](#clearing-all-entries-clear)                                      | `clear`
-
  [**Exit**](#exiting-the-program-exit)                                         | `exit`
  [**Help**](#viewing-help-help)                                                | `help` |
 
