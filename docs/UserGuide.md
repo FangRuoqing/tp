@@ -405,18 +405,17 @@ Format: `exit`
 ### Go to previous commands: Press UpperArrow icon(PgUp)/ Press DownArrow icon(PgDn)
 Suppose the commands entered are: 
 Command 1: list
-Command 2: edit John Doe n/ John
-Command 3: edit Alex Yeoh p/ 23456789
+Command 2: edit John Doe n/John
+Command 3: edit Alex Yeoh p/23456789
 
 After executing Command 3,  
-Pressing PgUp once will display: edit Alex Yeoh p/ 23456789
-Pressing PgUp again will display: edit John Doe n/ John
+Pressing PgUp once will display: edit Alex Yeoh p/23456789
+Pressing PgUp again will display: edit John Doe n/John
 Pressing PgUp once more will display: list
 Further pressing PgUp will not change the command box content as it reaches the earliest command.
 
-After navigating up, pressing PgDn once will display: edit John Doe n/ John
-Pressing PgDn again will display: edit Alex Yeoh p/ 23456789
-Pressing PgDn once more will display: list
+After navigating up, pressing PgDn once will display: edit John Doe n/John
+Pressing PgDn again will display: edit Alex Yeoh p/23456789
 Further pressing PgDn will not change the command box content as it reaches the latest command.
 
 
@@ -486,6 +485,7 @@ Action                                                                          
  [**Star**](#starring-a-contact-star)                                          | `star NAME`<br> e.g., `star John Doe`
  [**Unstar**](#removing-the-star-from-a-contact-unstar)                        | `unstar NAME`<br> e.g., `unstar John Doe`
  [**Clear**](#clearing-all-entries-clear)                                      | `clear`
+
  [**Exit**](#exiting-the-program-exit)                                         | `exit`
  [**Help**](#viewing-help-help)                                                | `help` |
 
