@@ -177,7 +177,13 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
 **Note:** In Connectify, contact names are case-insensitive and no duplicates are allowed. Hence `John Lim` is considered to be the
 same person as `john lim`. As a result, you will see an error message if you try to add a contact with the same name as an existing contact,
-even if it is in different case.
+even if it is in different case. Adding a contact with the same name as an existing contact, with extra spaces,
+will produce a warning but does not prevent the user from doing so.
+</box>
+<box type="info" seamless>
+
+**Note:** A person's name can only contain alphanumeric characters. Special characters are not allowed. 
+The maximum length of a person's name is 50 characters. <br>
 </box>
 <box type="tip" seamless>
 
