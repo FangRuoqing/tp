@@ -128,10 +128,12 @@ Attribute  | Description                                |  Required
 <div style="page-break-after: always;"></div>
 
 ## Connectify Overview
-![Connectify Overview](images/Connectify Overview.png)
+
+![Connectify Overview](images/ConnectifyOverview.png)
 
 ## Contact Card View
-![Contact Card View](images/Contact Card View.png)
+
+![Contact Card View](images/ContactCardView.png)
 
 ## Features
 
@@ -287,6 +289,9 @@ Examples:
 ### Prioritising a contact : `pr/PRIORITY_LEVEL`
 
 Assigns the specified priority level to the specified contact or removes the priority level from the specified contact.
+This command is aimed at assigning formal priority levels to contacts based on their importance or urgency.
+Priorities help you manage your contacts in a more structured way,
+especially in professional or organizational settings.
 
 Format: `pr/PRIORITY_LEVEL NAME`
 
@@ -372,7 +377,9 @@ Format: `count`
 
 ### Starring a contact : `star`
 
-Stars the specified contact in Connecitfy.
+The star command is designed to mark a contact with a star, indicating informal significance or personal preference.
+It's a way to highlight certain contacts that you consider important or frequently interact with, such as close friends,
+and frequent collaborators.
 
 Format: `star NAME`
 
@@ -442,6 +449,9 @@ _Details coming soon ..._
 
 **Q**: How do I handle data storage and saving?<br>
 **A**: Connectify automatically saves contact data to a JSON file located in the same directory as the jar file. There's no need to save manually as changes are saved automatically.
+
+**Q**: What's the difference between the purpose of Priority and Star command?<br>
+**A**: Priority levels are used for formal categorization and organization of contacts based on their importance or urgency. Stars are typically used for personal preference rather than formal categorization. You might star contacts you frequently communicate with or those you consider important in a personal context.
 
 --------------------------------------------------------------------------------------------------------------------
 
