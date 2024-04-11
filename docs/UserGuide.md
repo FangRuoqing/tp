@@ -127,6 +127,12 @@ Attribute  | Description                                |  Required
 
 <div style="page-break-after: always;"></div>
 
+## Connectify Overview
+![Connectify Overview](images/Connectify Overview.png)
+
+## Contact Card View
+![Contact Card View](images/Contact Card View.png)
+
 ## Features
 
 <box type="info" seamless>
