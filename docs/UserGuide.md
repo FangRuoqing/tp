@@ -19,7 +19,7 @@ understanding of how to navigate and utilize Connectify's features effectively.
 
 Here is a brief overview of our key features:
 
-- Adding the company attribute to a contact and finding contacts by their company
+- Adding a company attribute to a contact and finding contacts by their company
 - Setting priority levels for contacts and filtering contact by a certain priority level
 - Adding a meeting to a contact and viewing all meetings scheduled
 
