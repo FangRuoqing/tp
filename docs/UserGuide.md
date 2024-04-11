@@ -171,12 +171,12 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 same person as `john lim`. As a result, you will see an error message if you try to add a contact with the same name as an existing contact,
 even if it is in different case.
 </box>
-<box type="tip" seamless>
 <box type="info" seamless>
 
 **Note:** We allow duplicate phone number and email for contacts. This is to allow flexibility in using this feature
 as some contacts may share the same general company email or phone number and not provide their personal information.
 </box>
+<box type="tip" seamless>
 
 **Tip:** A person's email and address are optional. A person can have any number of tags (including 0). <br>
 </box>
