@@ -128,9 +128,11 @@ Attribute  | Description                                |  Required
 <div style="page-break-after: always;"></div>
 
 ## Connectify Overview
+
 ![Connectify Overview](images/ConnectifyOverview.png)
 
 ## Contact Card View
+
 ![Contact Card View](images/ContactCardView.png)
 
 ## Features
@@ -175,7 +177,13 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
 **Note:** In Connectify, contact names are case-insensitive and no duplicates are allowed. Hence `John Lim` is considered to be the
 same person as `john lim`. As a result, you will see an error message if you try to add a contact with the same name as an existing contact,
-even if it is in different case.
+even if it is in different case. Adding a contact with the same name as an existing contact, with extra spaces,
+will produce a warning but does not prevent the user from doing so.
+</box>
+<box type="info" seamless>
+
+**Note:** A person's name can only contain alphanumeric characters. Special characters are not allowed. 
+The maximum length of a person's name is 50 characters. <br>
 </box>
 <box type="tip" seamless>
 
@@ -287,12 +295,16 @@ Examples:
 ### Prioritising a contact : `pr/PRIORITY_LEVEL`
 
 Assigns the specified priority level to the specified contact or removes the priority level from the specified contact.
+This command is aimed at assigning formal priority levels to contacts based on their importance or urgency.
+Priorities help you manage your contacts in a more structured way,
+especially in professional or organizational settings.
 
 Format: `pr/PRIORITY_LEVEL NAME`
 
 * The specified `NAME` of the contact to assign the priority level to is case-insensitive. <br>
 e.g `pr/high Alex Tan` is the same as `pr/high alex tan`
-* Acceptable values for PRIORITY_LEVEL are `high`, `med` and `none`
+* Acceptable values for `PRIORITY_LEVEL` are `high`, `med` and `none`. Entering any other values would 
+be considered unknown commands.
 * `pr/high NAME` assigns the `high` priority level to the specified contact.
 * `pr/med NAME` assigns the `medium` priority level to the specified contact.
 * `pr/none NAME` removes the priority level from the specified contact. <br>
@@ -305,11 +317,13 @@ Examples:
 
 ### Filtering contacts by priority : `filter-PRIORITY_LEVEL`
 
-Filters the contacts in Connecitfy by the specified priority level.
+Filters the contacts in Connectify by the specified priority level.
 
 Format: `filter-PRIORITY_LEVEL`
 
-* Acceptable values for PRIORITY_LEVEL are high and med.
+* Acceptable values for `PRIORITY_LEVEL` are high and med.
+* As the purpose of filtering by priority is so that users can easily identify 
+and focus on only important contacts, filtering by priority level `none` is not an option.
 
 Examples:
 * `filter-high` returns a list of contacts with high priority.
@@ -372,7 +386,9 @@ Format: `count`
 
 ### Starring a contact : `star`
 
-Stars the specified contact in Connecitfy.
+The star command is designed to mark a contact with a star, indicating informal significance or personal preference.
+It's a way to highlight certain contacts that you consider important or frequently interact with, such as close friends,
+and frequent collaborators.
 
 Format: `star NAME`
 
@@ -442,6 +458,9 @@ _Details coming soon ..._
 
 **Q**: How do I handle data storage and saving?<br>
 **A**: Connectify automatically saves contact data to a JSON file located in the same directory as the jar file. There's no need to save manually as changes are saved automatically.
+
+**Q**: What's the difference between the purpose of Priority and Star command?<br>
+**A**: Priority levels are used for formal categorization and organization of contacts based on their importance or urgency. Stars are typically used for personal preference rather than formal categorization. You might star contacts you frequently communicate with or those you consider important in a personal context.
 
 --------------------------------------------------------------------------------------------------------------------
 
