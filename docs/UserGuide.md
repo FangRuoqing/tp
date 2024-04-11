@@ -128,10 +128,12 @@ Attribute  | Description                                |  Required
 <div style="page-break-after: always;"></div>
 
 ## Connectify Overview
-![Connectify Overview](images/Connectify Overview.png)
+
+![Connectify Overview](images/ConnectifyOverview.png)
 
 ## Contact Card View
-![Contact Card View](images/Contact Card View.png)
+
+![Contact Card View](images/ContactCardView.png)
 
 ## Features
 
