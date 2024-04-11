@@ -185,6 +185,11 @@ will produce a warning but does not prevent the user from doing so.
 **Note:** A person's name can only contain alphanumeric characters. Special characters are not allowed. 
 The maximum length of a person's name is 50 characters. <br>
 </box>
+<box type="info" seamless>
+
+**Note:** We allow duplicate phone number and email for contacts. This is to allow flexibility in using this feature
+as some contacts may share the same general company email or phone number and not provide their personal information.
+</box>
 <box type="tip" seamless>
 
 **Tip:** A person's email and address are optional. A person can have any number of tags (including 0). <br>
@@ -341,12 +346,20 @@ Format: `mtg NAME m/MEETING_DESCRIPTION time/MEETING_TIME`
 **Note:** Each contact is only allowed to have one meeting. If the contact already has an existing meeting, 
 the meeting details will be updated to the new one and a message will inform you the previous and updated meeting details.<br>
 </box>
+<box type="info" seamless>
+
+**Note:** For now, users are allowed to set meeting dates that has passed. This is to provide users with flexibility in using
+this feature. If you wish to use the meetings function to remember meetings that you had with a contact, you are able to
+do so as well.<br>
+</box>
 
 * The specified NAME of the contact is case-insensitive. <br>
 e.g `mtg john lim m/interview time/23-03-2024 1600-1700` is 
 the same as `mtg John Lim m/interview time/23-03-2024 1600-1700`
 * The specified MEETING_TIME must be of the format dd-MM-YYYY HHmm-HHmm.
-* Entering `mtg NAME m/` removes the meeting from the specified contact. <br>
+* Note that the date specified has to be valid. For instance entering a date 31-02-2025 (31st february does not exist)
+will throw an error.
+* Entering `mtg NAME m/` or `mtg NAME` removes the meeting from the specified contact. <br>
 If the person's contact did not have a meeting and `mtg NAME m/` is entered, 
 an error message will appear and the person's contact will remain the same. 
 * If `MEETING_DESCRIPTION` is entered, entering `MEETING_TIME` is mandatory.
