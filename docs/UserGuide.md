@@ -172,6 +172,11 @@ same person as `john lim`. As a result, you will see an error message if you try
 even if it is in different case. Adding a contact with the same name as an existing contact, with extra spaces,
 will produce a warning but does not prevent the user from doing so.
 </box>
+<box type="info" seamless>
+
+**Note:** A person's name can only contain alphanumeric characters. Special characters are not allowed. 
+The maximum length of a person's name is 50 characters. <br>
+</box>
 <box type="tip" seamless>
 
 **Tip:** A person's email and address are optional. A person can have any number of tags (including 0). <br>
