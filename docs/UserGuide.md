@@ -169,7 +169,8 @@ Format: `add n/NAME p/PHONE_NUMBER [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
 **Note:** In Connectify, contact names are case-insensitive and no duplicates are allowed. Hence `John Lim` is considered to be the
 same person as `john lim`. As a result, you will see an error message if you try to add a contact with the same name as an existing contact,
-even if it is in different case.
+even if it is in different case. Adding a contact with the same name as an existing contact, with extra spaces,
+will produce a warning but does not prevent the user from doing so.
 </box>
 <box type="tip" seamless>
 
