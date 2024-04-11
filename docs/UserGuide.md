@@ -74,7 +74,7 @@ and use the features in Connectify.
 
 1. Ensure you have Java `11` or above installed in your Computer. <br>
 How to check?
-   1. Open Command Prompt (for Windows) or Terminal (for MacOS)
+   1. Open Command Prompt (for Windows) or Terminal (for MacOS).
    2. Type the command `java -version` to check the version of java installed on your computer. <br>
    It should look like this: <br>
       ![checkJavaVersion](images/checkJavaVersion.png)
@@ -126,6 +126,12 @@ Attribute  | Description                                |  Required
 --------------------------------------------------------------------------------------------------------------------
 
 <div style="page-break-after: always;"></div>
+
+## Connectify Overview
+![Connectify Overview](images/Connectify Overview.png)
+
+## Contact Card View
+![Contact Card View](images/Contact Card View.png)
 
 ## Features
 
