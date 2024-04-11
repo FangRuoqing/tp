@@ -402,7 +402,7 @@ Exits the program.
 
 Format: `exit`
 
-### Go to previous commands: Press PgUp(UpperArrow) button / Press PgDn(DownArrow) button on your computer keyboard
+### Go to previous commands: Press Arrow Up button / Press Arrow Down button on your computer keyboard
 
 Suppose the commands entered are: 
 Command 1: list
