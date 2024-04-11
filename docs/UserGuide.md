@@ -403,6 +403,7 @@ Exits the program.
 Format: `exit`
 
 ### Go to previous commands: Press PgUp(UpperArrow) button / Press PgDn(DownArrow) button on your computer keyboard
+
 Suppose the commands entered are: 
 Command 1: list
 Command 2: edit John Doe n/John
@@ -417,7 +418,6 @@ Further pressing PgUp will not change the command box content as it reaches the 
 After navigating up, pressing PgDn once will display: edit John Doe n/John
 Pressing PgDn again will display: edit Alex Yeoh p/23456789
 Further pressing PgDn will not change the command box content as it reaches the latest command.
-
 
 ### Saving the data
 
