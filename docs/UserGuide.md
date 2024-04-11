@@ -172,6 +172,11 @@ same person as `john lim`. As a result, you will see an error message if you try
 even if it is in different case.
 </box>
 <box type="tip" seamless>
+<box type="info" seamless>
+
+**Note:** We allow duplicate phone number and email for contacts. This is to allow flexibility in using this feature
+as some contacts may share the same general company email or phone number and not provide their personal information.
+</box>
 
 **Tip:** A person's email and address are optional. A person can have any number of tags (including 0). <br>
 </box>
@@ -192,11 +197,6 @@ Edits an existing contact in Connectify.
 
 Format: `edit NAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
-<box type="info" seamless>
-
-**Note:** We allow duplicate phone number and email for contacts. This is to allow flexibility in using this feature
-as some contacts may share the same general company email or phone number and not provide their personal information. 
-</box>
 
 * Edits the contact with the specified `NAME`. The specified `NAME` of the contact to edit is case-insensitive. <br>
     e.g `edit John Doe n/John` is the same as `edit john doe n/John`
