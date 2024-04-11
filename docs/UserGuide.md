@@ -197,7 +197,6 @@ Edits an existing contact in Connectify.
 
 Format: `edit NAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
-
 * Edits the contact with the specified `NAME`. The specified `NAME` of the contact to edit is case-insensitive. <br>
     e.g `edit John Doe n/John` is the same as `edit john doe n/John`
 * At least one of the optional fields must be provided.
