@@ -438,6 +438,23 @@ Exits the program.
 
 Format: `exit`
 
+### Go to previous commands: Press Arrow Up button / Press Arrow Down button on your computer keyboard
+
+Suppose the commands entered are: 
+Command 1: list
+Command 2: edit John Doe n/John
+Command 3: edit Alex Yeoh p/23456789
+
+After executing Command 3,  
+Pressing the arrow up button once will display: edit Alex Yeoh p/23456789
+Pressing the arrow up button again will display: edit John Doe n/John
+Pressing the arrow up button once more will display: list
+Further pressing the arrow up button will not change the command box content as it reaches the earliest command.
+
+After navigating up, pressing arrow down button once will display: edit John Doe n/John
+Pressing arrow down button again will display: edit Alex Yeoh p/23456789
+Further pressing the arrow down button will not change the command box content as it reaches the latest command.
+
 ### Saving the data
 
 The address book data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
