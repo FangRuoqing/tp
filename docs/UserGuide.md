@@ -19,7 +19,7 @@ understanding of how to navigate and utilize Connectify's features effectively.
 
 Here is a brief overview of our key features:
 
-- Adding a company tag to a contact and finding contacts by their company tag
+- Adding a company attribute to a contact and finding contacts by their company
 - Setting priority levels for contacts and filtering contact by a certain priority level
 - Adding a meeting to a contact and viewing all meetings scheduled
 
@@ -117,7 +117,7 @@ Attribute  | Description                                |  Required
 **Email** | Email of the contact                       | No   
 **Address**   | Address of the contact                     | No   
 **Tag**   | Categories to sort the contact under       | No
-**Company Tag**  | Company of the contact                     | No
+**Company**  | Company of the contact                     | No
 **Priority**  | Level of priority, from NONE, MED and HIGH | No  
 **Remark** | Note added to a contact                    | No
 **Meeting**  | Scheduled meeting with a contact with a specified date and time | No                                 
@@ -258,7 +258,7 @@ Format: `delete NAME`
 Examples:
 * `delete Betsy` deletes the contact with the contact name `Betsy` in Connectify.
 
-### Adding a company tag to a contact : `co`
+### Adding a company attribute to a contact : `co`
 
 Tags the specified company name to the specified contact shown in the displayed contact list.
 
@@ -266,35 +266,35 @@ Format: `co NAME c/COMPANY_NAME`
 
 <box type="info" seamless>
 
-**Note:** Each contact is only allowed to have one company tag. If the contact already has an existing company tag, 
-the company tag will be updated to the new one and a message will inform you the previous and updated company tag.<br>
+**Note:** Each contact is only allowed to have one company attribute. If the contact already has an existing company attribute, 
+the company attribute will be updated to the new one and a message will inform you the previous and updated company.<br>
 </box>
 
-* Tags the company name to the person's contact. The specified `NAME` of the contact to add the company tag is 
+* Tags the company name to the person's contact. The specified `NAME` of the contact to add the company attribute is 
 case-insensitive. e.g `co John Doe c/TikTok` is the same as `co john doe c/TikTok`
 * Entering `co NAME c/`, leaving the `COMPANY_NAME` as empty, will remove the company 
 tag from a person's contact. <br>
-If the person's contact did not have a company tag and `co NAME c/` is entered, an error message will appear and the
+If the person's contact did not have a company attribute and `co NAME c/` is entered, an error message will appear and the
 person's contact will remain the same.
 
 
 Examples:
-* `co Betsy c/Google` adds the company tag `Google` to the contact name `Betsy` in Connectify.
-* `co Alex c/` removes the company tag from the contact name `Alex` in Connectify.
+* `co Betsy c/Google` adds the company attribute `Google` to the contact name `Betsy` in Connectify.
+* `co Alex c/` removes the company attribute from the contact name `Alex` in Connectify.
 
-### Locating persons by company tag : `findco`
+### Locating persons by company : `findco`
 
-Finds contacts whose company tag exactly matches the specified keyword.
+Finds contacts whose company attribute exactly matches the specified keyword.
 
 Format: `findco KEYWORD`
 
-* Finds contacts by the company tag. The specified `KEYWORD` is
+* Finds contacts by the company. The specified `KEYWORD` is
   case-insensitive. e.g `findco TikTok` is the same as `findco tiktok`
 * The specified keyword has to be exactly the same as the person's company 
-tag for the person to be found <br> e.g. the keyword `goog` will not match the company tag `google`
+tag for the person to be found <br> e.g. the keyword `goog` will not match the company `google`
 
 Examples:
-* `findco Google` returns `John Lim`, who has a company tag of `Google` in Connectify.<br>
+* `findco Google` returns `John Lim`, who has a company attribute of `Google` in Connectify.<br>
   ![result for 'findco Google'](images/findcoGoogle.png)
 
 ### Prioritising a contact : `pr/PRIORITY_LEVEL`
@@ -380,7 +380,7 @@ Adds the specified remark to the specified contact shown in the displayed contac
 
 Format: `remark NAME r/REMARK_DESCRIPTION`
 
-* The specified `NAME` of the contact to add the company tag is case-insensitive. <br>
+* The specified `NAME` of the contact to add the company attribute is case-insensitive. <br>
 e.g `remark John Doe r/met him at the career fair` is the 
 same as `remark john doe r/met him at the career fair`
 * Entering `remark NAME r/`, leaving the `REMARK_DESCRIPTION` as empty, will remove the remark
