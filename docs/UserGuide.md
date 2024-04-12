@@ -192,7 +192,9 @@ as some contacts may share the same general company email or phone number and no
 </box>
 <box type="tip" seamless>
 
-**Tip:** A person's email and address are optional. A person can have any number of tags (including 0). <br>
+**Tip:** A person's email and address are optional. 
+Placeholders `[email]` and `[address]` will be displayed if none are provided. <br>
+A person can have any number of tags (including 0). <br>
 </box>
 
 Examples:
