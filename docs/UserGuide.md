@@ -135,6 +135,8 @@ Attribute  | Description                                |  Required
 
 ![Contact Card View](images/ContactCardView.png)
 
+<div style="page-break-after: always;"></div>
+
 ## Features
 
 <box type="info" seamless>
@@ -200,6 +202,8 @@ A person can have any number of tags (including 0). <br>
 Examples:
 * `add n/John Doe p/98765432 a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/recruiter e/betsycrowe@example.com a/Betsy street, block 456, #02-02 p/1234567`
+
+<div style="page-break-after: always;"></div>
 
 ### Listing all persons : `list`
 
