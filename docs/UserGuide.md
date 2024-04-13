@@ -77,7 +77,7 @@ How to check?
    1. Open Command Prompt (for Windows) or Terminal (for MacOS).
    2. Type the command `java -version` to check the version of java installed on your computer. <br>
    It should look like this: <br>
-      ![checkJavaVersion](images/checkJavaVersion.png)
+      ![checkJavaVersion.png](images/checkJavaVersion.png)
    3. If your java version installed is java 11 or above, move on to the next step! Else, download java version 11 [here](https://www.oracle.com/sg/java/technologies/downloads/#java11),
    before continuing to the next step.
 
@@ -472,9 +472,6 @@ If your changes to the data file makes its format invalid, Connectify will disca
 Furthermore, certain edits can cause Connectify to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
