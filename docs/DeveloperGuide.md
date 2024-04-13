@@ -283,29 +283,70 @@ _{Explain here how the data archiving feature will be implemented}_
 **Value proposition**: Tailored specifically for computing students, our team project, Connectify, optimises networking for future career opportunities. Connectify seamlessly organises contact details, efficiently manages professional relationships and simplifies event and meeting planning. Designed for seamless usage via Command Line Interface (CLI), Connectify’s ease of use sets up computing students for success.
 
 
+## **Appendix: Planned Enhancements**
+Team size: 5
+
+1. **Change priority command format to be more consistent with the other commands.** <br>
+The current priority command format is
+`pr/PRIORITY_LEVEL NAME`. We plan to change the format to `pr NAME pr/PRIORITY_LEVEL`, to match the formats of our other commands.
+2. **Add priority level low** <br>
+Currently, we only allow users to assign their contacts priority levels high and medium.
+We plan to add and allow users to assign their contacts with the priority level low.
+3. **Allow users to filter by low and no priority** <br>
+Users are only allowed to filter by priority high and medium currently.
+We plan to allow users to filter by no priority and also by low priority (see point 2). This is to provide users with more
+convenient information for them to prioritise their networking efforts accordingly.
+4. **Disallow users from adding meetings with timings where the end time is earlier than the start time** <br>
+Currently, if users try to add a meeting with the timing where they specify the end time to be earlier than the start time, no error is raised.
+We plan to introduce an error when users accidentally use the function this way. This is to prevent misuse of the function
+as it would typically be illogical to have an end time earlier than the start.
+5. **Enforce stricter constraints on email input for add and edit command** <br>
+The current implementation of add and edit command only checks for the @domain. 
+We plan to ensure that the email address input for the add and edit command follows 
+the standard internet email address conventions strictly, which is to have a compulsory top-level domain (TLD). Hence, we
+plan to introduce additional checks for email inputs without a top-level domain and raise an error. This is to prevent users
+from accidentally adding an incorrect email.
+6. **Allow users to perform commands on contacts that are not currently listed/displayed** <br>
+Currently, after running some commands like `find` and `findco` where the displayed contact list is narrowed down, running other commands will only execute it on the
+currently displayed list. As a result, for users to use the commands accurately and effectively, they currently need to run
+the `list` command before running other commands to execute it on the entire contact list, which is inconvenient. Hence, we
+plan to allow users to perform commands on contacts, based on names that are independent to the list that is filtered/displayed.
+7. **Allow contact name inputs to include characters like '/'** <br>
+Our current implementation of add and edit command does not
+allow for special characters and only allows alphanumeric characters. We plan to allow the name input for add and edit command
+to include special characters like '/' for inclusivity as some names have it.
+8. **Allow duplicate contact names if they have different attributes** <br>
+Currently, we do not allow duplicate contact names at all,
+and names are case-insensitive (as in real life). However, we do note that while rare, some people may have the same exact name.
+Hence, in consideration of this, we plan to allow duplicate contact names if they have different attributes
+(e.g different company) in future versions.
+9. **More consistent error messages throughout application** <br>
+In our current implementation of the features, error messages
+for incorrect command usage varies across different commands. Hence, we plan to modify error messages for incorrect command usage
+to ensure cohesiveness and consistency throughout the application, to provide more clarity to users.
+
+
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​           | I want to …​                                                                                              | So that I can…​                                                                      |
-|----------|-------------------|-----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| `* * *`  | user              | add a new contact easily                                                                                  |                                                                                      |
-| `* * *`  | user              | edit the details that I’ve added                                                                          | my application will contain the most updated and accurate information                |
-| `* * *`  | user              | list all my contacts                                                                                      | remember whom I’ve met at a glance                                                   |
-| `* * *`  | user              | delete a contact                                                                                          | only keep those that are necessary                                                   |
-| `* * *`  | user              | undo my most recently added entry                                                                         | quickly delete that entry if I had made a mistake                                    |
-| `* *`    | computing student | categorise the people I meet into interns, recruiters, alumni, students, professors, employees and others | remember the people whom I’ve met and easily find them again                         |
-| `* *`    | computing student | search a contact using key word                                                                           | find the contact quickly                                                             |
-| `* *`    | user              | add a meeting with my contact                                                                             | know when to meet with the conatct                                                   |
-| `* *`    | user              | find all meetings                                                                                         | know who I will be meeting with                                                      |
-| `* *`    | user              | differentiate which companies my professional contacts are from                                           | know which company I am connecting with                                              |
-| `* *`    | user              | find my contacts by company                                                                               | easily find the contacts from the company I want                                     |
-| `* *`    | computing student | assign priority levels to my contacts                                                                     | prioritise certain contacts in my network who would be more beneficial for my career |
-| `*`      | computing student | filter my contacts by priority                                                                            | identify high-priority contacts at a glance                                          |
-| `*`      | user              | have a "favourites" or "star" feature for important contacts                                              | easily access them without scrolling through the entire list                         |
-| `*`      | user              | know the number of contacts quickly                                                                       | get a sensing of how many people are in my network                                   |
-| `*`      | user              | unstar a contact                                                                                          |                                                                                      |
-| `*`      | user              | remove priority from a contact                                                                            |                                                                                      |
+| Priority | As a …​           | I want to …​                                                    | So that I can…​                                                                      |
+|----------|-------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| `* * *`  | user              | add a new contact easily                                        |                                                                                      |
+| `* * *`  | user              | edit the details that I’ve added                                | my application will contain the most updated and accurate information                |
+| `* * *`  | user              | list all my contacts                                            | remember whom I’ve met at a glance                                                   |
+| `* * *`  | user              | delete a contact                                                | only keep those that are necessary                                                   |
+| `* *`    | computing student | search a contact using key word                                 | find the contact quickly                                                             |
+| `* *`    | user              | add a meeting with my contact                                   | know when to meet with the contact                                                   |
+| `* *`    | user              | find all meetings                                               | know who I will be meeting with                                                      |
+| `* *`    | user              | differentiate which companies my professional contacts are from | know which company I am connecting with                                              |
+| `* *`    | user              | find my contacts by company                                     | easily find the contacts from the company I want                                     |
+| `* *`    | computing student | assign priority levels to my contacts                           | prioritise certain contacts in my network who would be more beneficial for my career |
+| `*`      | computing student | filter my contacts by priority                                  | identify high-priority contacts at a glance                                          |
+| `*`      | user              | have a "favourites" or "star" feature for important contacts    | easily access them without scrolling through the entire list                         |
+| `*`      | user              | know the number of contacts quickly                             | get a sensing of how many people are in my network                                   |
+| `*`      | user              | unstar a contact                                                |                                                                                      |
+| `*`      | user              | remove priority from a contact                                  |                                                                                      |
 
 
 ### Use cases
