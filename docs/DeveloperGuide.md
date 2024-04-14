@@ -632,3 +632,120 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+### Prioritising a contact:
+1. Assign priority to a new contact.
+
+   1. Prerequisites: Have a contact shown in the displayed contact list.
+
+   1. Test case: `pr/high John Doe`<br>
+   Expected: John Doe is assigned high priority level, a red circle appears behind the contact name. Confirmation message displayed.
+
+   1. Test case: `pr/med Jane Smith`<br>
+   Expected: Jane Smith is assigned medium priority level, an orange circle appears behind the contact name. Confirmation message displayed.
+
+   1. Test case: `pr/none Alex Tan`<br>
+   Expected: Priority level is removed from Alex Tan. Confirmation message displayed.
+
+   1. Test case: `pr/low Michael Johnson`<br>
+   Expected: Error message indicating unknown command. No changes made.
+
+2. Assign priority to a contact that is already assigned with priority.
+
+    1. Prerequisites: Have a contact shown in the displayed contact list, and John Doe is assigned high priority level.
+
+    1. Test case: `pr/med John Doe`<br>
+       Expected: John Doe is assigned medium priority level, an orange circle appears instead of the red circle. Confirmation message displayed.
+
+### Filtering contacts by priority:
+i. Prerequisites: Have contacts with different priority levels.
+
+ii. Test case: `filter-high`<br>
+Expected: List of contacts with high priority is displayed.
+
+iii. Test case: `filter-med`<br>
+Expected: List of contacts with medium priority is displayed.
+
+iv. Test case: `filter-low`<br>
+Expected: Error message indicating unknown command. No changes made.
+
+### Adding a meeting to a person:
+1. Add a meeting to a new contact.
+
+   1. Prerequisites: Have a contact shown in the displayed contact list.
+
+   1. Test case: `mtg John Doe m/Coffee meeting time/14-04-2024 1500-1600`<br>
+   Expected: A meeting named "Coffee meeting" with John Doe on 14th April 2024 from 3 PM to 4 PM is added. Confirmation message displayed.
+
+   1. Test case: `mtg Jane Smith m/Call`<br>
+   Expected: Error message indicating missing meeting time. No changes made.
+
+   1. Test case: `mtg Michael Johnson m/Team meeting time/31-02-2025 0900-1000`<br>
+   Expected: Error message indicating invalid date. No changes made.
+
+2. Change the existing meeting with a contact.
+
+   1. Prerequisites: Have a contact shown in the displayed contact list, and a meeting is added with John Doe.
+
+   1. Test case: `mtg John Doe m/interview time/23-03-2024 1600-1700`<br>
+   Expected: A meeting named "interview" with John Doe on 23rd March 2024 from 4 PM to 5 PM replaces the previous meeting.
+
+### Viewing all contacts with meetings:
+i. Test case: `viewmtgs`<br>
+Expected: List of all contacts with scheduled meetings is displayed.
+
+### Adding a remark to a person:
+
+1. Add a meeting to a new contact.
+
+   1. Prerequisites: Have a contact shown in the displayed contact list.
+
+   1. Test case: `remark John Doe r/Met at conference`<br>
+   Expected: Remark "Met at conference" is added to John Doe. Confirmation message displayed.
+
+   1. Test case: `remark Jane Smith r/`<br>
+   Expected: Remark is removed from Jane Smith. Confirmation message displayed.
+
+   1. Test case: `remark Alex Tan`<br>
+   Expected: Error message indicating missing remark description. No changes made.
+
+2. Change the existing meeting with a contact.
+
+    1. Prerequisites: Have a contact shown in the displayed contact list, and a remark is added with John Doe.
+
+    1. Test case: `remark John Doe r/Met at school`<br>
+       Expected: Remark "Met at conference" replaces the previous remark for John Doe.
+
+### Getting the number of contacts:
+i. Test case: `count`<br>
+Expected: Total number of contacts in Connectify is displayed.
+
+### Starring a contact:
+1. Add a star to a new contact.
+
+   1. Prerequisites: Have a contact shown in the displayed contact list, and the contact is not starred.
+
+   1. Test case: `star John Doe`<br>
+   Expected: John Doe is starred. A star appears behind the contact name. Confirmation message displayed.
+
+2. Add a star to a contact that is already starred.
+
+   1. Prerequisites: Have a contact shown in the displayed contact list, and Jane Smith is already starred.
+
+   1. Test case: `star Jane Smith`<br>
+   Expected: Error message indicating that the contact is already starred. No changes made.
+
+### Removing the star from a contact:
+1. Remove a star from a starred contact.
+
+    1. Prerequisites: Have a contact shown in the displayed contact list, and the contact is starred.
+
+    1. Test case: `unstar John Doe`<br>
+       Expected: Star is removed from John Doe. Confirmation message displayed.
+
+2. Remove a star from a contact that is not starred.
+
+    1. Prerequisites: Have a contact shown in the displayed contact list, and the contact is not starred.
+
+    1. Test case: `unstar Jane Smith`<br>
+       Expected: Error message indicating that the contact is not starred. No changes made.
