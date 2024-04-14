@@ -288,7 +288,7 @@ The implementation of the star feature allows users to star specific contacts in
 
 The diagram below shows the activity diagram for StarCommand.
 
-![StarCommandActivityDiagram](images/StarCommandActivityDiagram.png)
+<puml src="diagrams/StarCommandActivityDiagram.puml" width="574" />
 
 --------------------------------------------------------------------------------------------------------------------
 
