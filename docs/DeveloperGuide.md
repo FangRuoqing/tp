@@ -164,7 +164,7 @@ and only added on later to the contact with the `co NAME c/COMPANY_NAME` command
 
 The adding of a company attribute to a contact follows the following activity diagram.
 
-<puml src="diagrams/CompanyCommandActivityDiagram.puml" width="574" />
+<puml src="diagrams/CompanyCommandActivityDiagram.puml" alt="CompanyCommandActivityDiagram"/>
 
 The company attribute is displayed in the contact card. We initialise it as visible=False in the PersonListCard.fxml file,
 and then set it as visible when the company attribute is not an empty String in the PersonCard.java file in the UI component.
@@ -189,7 +189,7 @@ and check if the updated list is empty. If the updated list is empty. We will th
 
 The feature flow follows the following sequence diagram.
 
-<puml src="diagrams/FindCompanySequenceDiagram.puml" width="574" />
+<puml src="diagrams/FindCompanySequenceDiagram.puml" alt="FindCompanySequenceDiagram" />
 
 #### Design considerations:
 The find by company feature checks for contacts with the company attribute that matches the full keyword inputted, case-insensitive.
@@ -205,7 +205,7 @@ time. For our current implementation, each contact is only allowed to have one m
 
 The adding of a meeting attribute to a contact follows the following sequence diagram.
 
-<puml src="diagrams/AddMeetingCommandSequenceDiagram.puml" width="574" />
+<puml src="diagrams/AddMeetingCommandSequenceDiagram.puml" alt="AddMeetingCommandSequenceDiagram" />
 
 **Challenges faced**
 We initially meant to do the parsing of the date and time strings to the LocalDate and LocalTime respectively in the AddMeetingCommandParser.
