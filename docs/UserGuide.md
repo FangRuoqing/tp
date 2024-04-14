@@ -86,8 +86,10 @@ How to check?
 1. Copy the file to the folder you want to use as the _home folder_ for your Connectify application.
 
 1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar connectify.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br><br>
    ![Ui](images/Ui.png)
+
+<div style="page-break-after: always;"></div>
 
 1. Type the command in the command box and press 'Enter' on your keyboard to execute it. e.g. typing **`help`** and pressing 'Enter' will open the help window.<br>
    Some example commands you can try:
@@ -248,8 +250,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br><br>
-
+* `find james betsy` returns `James Lee`, `Betsy Crowe`<br>
   ![result for 'find james betsy'](images/findJamesBetsyResult.png)
 
 ### Deleting a person : `delete`
@@ -302,6 +303,8 @@ tag for the person to be found <br> e.g. the keyword `goog` will not match the c
 Examples:
 * `findco Google` returns `John Lim`, who has a company attribute of `Google` in Connectify.<br>
   ![result for 'findco Google'](images/findcoGoogle.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Prioritising a contact : `pr/PRIORITY_LEVEL`
 
