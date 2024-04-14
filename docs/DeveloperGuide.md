@@ -567,23 +567,129 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Deleting a contact
 
-1. Deleting a person while all persons are being shown
-
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+1. Deleting a contact from the addressbook
 
    1. Test case: `delete Alex Yeoh`<br>
-      Expected: Contact with the name "Alex Yeoh" is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: Okay, Alex Yeoh's contact has been deleted.
 
    1. Test case: `delete`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: Invalid command format! delete: Deletes the person identified by the name used in the contact list. Parameters: CONTACT_NAME
 
-   1. Other incorrect delete commands to try: `delete 0`, `delete 1`, `delete x`, `...` (where x is an integer)<br>
-      Expected: Similar to previous.
+   1. Test case: `delete nonexistent`<br>
+      Expected: Oops, nonexistent's contact does not exist.
 
-1. _{ more test cases …​ }_
+### Adding a person
 
+1. Adding a new person into the list of contacts
+   
+    1. Test case: `add n/Alex Yeo p/98765432 a/Yeo street, block 321, #02-03`<br>
+       Expected: The program will display "New person added: Alex Yeo; Phone: 98765432; Email: ; Address: Yeo street, block 321, #02-03; Tags:"
+                The new person's info will be added into the addressbook. 
+   
+    1. Test case: `add`<br>
+       Expected: Invalid command format!
+       add: Adds a person to the address book. Parameters: n/NAME p/PHONE [e/EMAIL] [a/ADDRESS] [t/TAG]...
+       EMAIL, ADDRESS and TAGs are optional. 
+   
+    1. Test case: `add Alex Tan`<br>
+       Expected: Same as above
+   
+    1. Test case: `add n/Alex Yeo p/89765432 a/Yang street, block 123, #02-01`<br>
+       Expected: The program will display "This person already exists in the address book"
+
+### Editing a contact
+
+1. Editing a contact's information.
+
+    1. Test case: `edit Alex Yeo p/91234567`<br>
+       Expected: The program will display "Edited Alex Yeo's contact." The changes made to Alex Yeo's info will be saved. 
+   
+    1. Test case: `edit Alex Yeo a/AlexDorm`<br>
+       Expected: Same as above.
+
+    1. Test case: `edit`<br>
+       Expected: The program will display "Invalid command format!
+       edit: Edits the details of the person identified by the contact name used in the displayed person list. Existing values will be overwritten by the input values. 
+       Parameters: NAME [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]..."
+   
+    1. Test case: `edit Null n/Newname`<br>
+       Expected: The program will display "Oops, Null's contact does not exist."
+    
+    1. Test case: `edit Alex Yeo n/ExistentPerson`<br>
+       Expected: The program will display "Oops, you cannot change the contact name to this. This person already exists in the address book."
+
+### Finding a contact
+
+1. Finding contacts in the addressbook by typing names/part of names. 
+
+1. Assuming 4 people, Alex Yeoh, John, Alex, and Alex Yeo, are in the addressbook.
+    
+    1. Test case: `find Alex`<br>
+       Expected: The program will display "3 persons listed!". All the info of Alex, Alex Yeo, and Alex Yeoh would appear on the screen.  
+    
+    1. Test case: `find alex`<br>
+       Expected: Same as above
+    
+    1. Test case: `find a`<br>
+       Expected: Same as above
+   
+    1. Test case: 'find Alex John'<br>
+       Expected: The program will display "4 persons listed!". All the info of Alex, Alex Yeo, Alex Yeoh, and John would appear on the screen.
+
+    1. Test case: `find b`<br>
+       Expected: The program will display "0 persons listed!"
+    
+    1. Test case: `find`<br>
+       Expected: The program will display "Invalid command format!
+       find: Finds all persons whose names contain any of the specified keywords (case-insensitive) and displays them as a list with index numbers.
+       Parameters: KEYWORD [MORE_KEYWORDS]..."
+
+### Adding a company
+
+1. Adding a company to a contact
+
+    1. Test case: `co Alex c/Alexcomp`<br>
+       Expected: The program will display "Tagged Alex's company as Alexcomp". Also, there will be a company tag named Alexcomp attributed to Alex.
+
+    1. Test case: `co Alex c/Alexcompany`<br>
+       Expected: The program will display "Changed the existing company tag for Alex's contact
+       Previous company tag: Alexcomp  
+       Updated company tag: Alexcompany". And the tag of Alex will be changed and displayed on the screen.
+    
+    1. Test case: `co`<br>
+       Expected: The program will display "Oops, please state the name of the contact".
+    
+    1. Test case: `co Alex`<br>
+       Expected: The program will display "Removed the company tag from Alex's contact".
+    
+    1. Test case: `co Nonexistent`<br>
+      Expected: The program will display "Oops, Nonexistent's contact does not exist. Unable to add company tag".
+   
+    1. Test case: `co Nonexistent c/Alexcomp`<br>
+      Expected: same as above
+
+### Finding by Company
+
+1. Finding contacts by their company 
+
+1. Assuming there are 4 people in the contact list. Alex Yeoh, Alex, and Alex Yeo are working in Company Alexcomp, and John is working in Company Johncomp.
+
+    1. Test case: `findco Alexcomp`<br>
+       Expected: The program will display "Found 3 contacts with matching company tag(s)." And the info of the three people working in Alexcomp will be displayed on the screen. 
+    
+    1. Test case: `findco Alexcomp Johncomp`<br>
+       Expected: The program will display "Found 4 contacts with matching company tag(s)." And the info of the people working in either Alexcomp or Johncomp will be displayed on the screen.
+   
+    1. Test case: `findco Nonexistent`<br>
+       Expected: The program will display "Found 0 contacts with matching company tag(s)."
+    
+    1. Test case: `findco`<br>
+       Expected: The program will display "Invalid command format!
+       findco: Finds all contacts with company tag containing the specified keywords (case-insensitive) and displays them as a list with index numbers.
+       Parameters: KEYWORD [MORE_KEYWORDS]...".
+   
 ### Saving data
 
 1. Dealing with missing/corrupted data files
