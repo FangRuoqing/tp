@@ -36,7 +36,7 @@ create Meeting
 AddMeetingCommandParser -> Meeting
 activate Meeting
 
-Meeting -> AddMeetingCommandParser
+Meeting --> AddMeetingCommandParser
 deactivate Meeting
 
 create AddMeetingCommand

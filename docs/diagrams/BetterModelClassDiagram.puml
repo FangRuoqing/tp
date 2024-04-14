@@ -33,7 +33,7 @@ Phone : value: String
 Email : value: String
 Address : value: String
 Company : value: String
-Meeting : description: String
+Meeting : desc: String
 Meeting : date: LocalDate
 Meeting : start: LocalTime
 Meeting : end: LocalTime

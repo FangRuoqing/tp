@@ -347,6 +347,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Value proposition**: Tailored specifically for computing students, our team project, Connectify, optimises networking for future career opportunities. Connectify seamlessly organises contact details, efficiently manages professional relationships and simplifies event and meeting planning. Designed for seamless usage via Command Line Interface (CLI), Connectify’s ease of use sets up computing students for success.
 
+--------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Planned Enhancements**
 Team size: 5

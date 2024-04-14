@@ -29,14 +29,14 @@ activate FindCompanyCommandParser
 FindCompanyCommandParser --> AddressBookParser
 deactivate FindCompanyCommandParser
 
-AddressBookParser -> FindCompanyCommandParser : parse("Alex Yeoh")
+AddressBookParser -> FindCompanyCommandParser : parse("Google")
 activate FindCompanyCommandParser
 
 create CompanyContainsKeywordsPredicate
 FindCompanyCommandParser -> CompanyContainsKeywordsPredicate
 activate CompanyContainsKeywordsPredicate
 
-CompanyContainsKeywordsPredicate -> FindCompanyCommandParser
+CompanyContainsKeywordsPredicate --> FindCompanyCommandParser
 deactivate CompanyContainsKeywordsPredicate
 
 create FindCompanyCommand
