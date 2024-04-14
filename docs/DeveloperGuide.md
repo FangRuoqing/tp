@@ -13,7 +13,8 @@
 
 ## **Acknowledgements**
 
-This project was adapted from AddressBook Level 3 (AB-3).
+This project is adapted from the AddressBook Level 3 (AB-3) project created by the [SE-EDU intiative](https://se-education.org/).<br>
+We employed the help of ChatGPT to generate some code for the functionality of some features.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -433,19 +434,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. The given contact name is already in the contact list.
 
-    * 1a1. Connectify shows an error message and requests for the user to give a different contact name.
-    * 1a2. User enters new data.
-    * Steps 1a1-1a2 are repeated until the data entered is correct.
+    * 1a1. Connectify shows an error message.
 
-      Use case resumes from step 2.
+      Use case resumes from step 1.
 
 * 1b. Connectify detects an error in the entered data.
 
-    * 1b1. Connectify requests for the correct data.
-    * 1b2. User enters new data
-    * Steps 1b1-1b2 are repeated until the data entered is correct.
+    * 1b1. Connectify shows an error message.
 
-      Use case resumes from step 2.
+      Use case resumes from step 1.
   
 * 1c. Connectify detects a similar contact name in the entered contact name.
 
@@ -510,18 +507,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1b. Connectify detects an error in the entered data.
 
-    * 1b1. Connectify requests for the correct data.
-    * 1b2. User enters new data
-    * Steps 1b1-1b2 are repeated until the data entered is correct.
+    * 1b1. Connectify shows an error message
 
-      Use case resumes from step 2.
+      Use case resumes from step 1.
+  
+* 1c. Connectify detects that the new edited information violates the duplicate contact constraint. (updated name
+exists in Connectify already)
 
-**Use case: Categorize contacts**
+    * 1c1. Connectify shows an error message
+
+      Use case resumes from step 1.
+
+**Use case: Add company attribute to a contact**
 
 **MSS**
 
-1.  User requests to categorize a specific contact into a specific group name
-2.  Connectify adds the given category to the contact and displays the full updated contact information
+1.  User requests to add a specific company attribute to a specific contact.
+2.  Connectify adds the company's name attribute to the contact and displays the full updated contact information
 
     Use case ends.
 
@@ -534,27 +536,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 1.
 
-**Use case: Tag contacts with their company's name**
+* 1b. The contact already has an existing company attribute.
 
-**MSS**
-
-1.  User requests to tag a specific contact with a specific company's name
-2.  Connectify adds the company's name tag to the contact and displays the full updated contact information
-
-    Use case ends.
-
-**Extensions**
-
-
-* 1a. The given contact name is not in the contact list.
-
-    * 1a1. Connectify shows an error message.
-
-      Use case resumes at step 1.
-
-* 1b. The contact already has an existing company tag.
-
-    * 1b1. Connectify warns the user about the existing company tag and updates the company tag to the new one.
+    * 1b1. Connectify warns the user about the existing company attribute and updates the company attribute to the new one.
 
         Use Case ends
 
@@ -671,8 +655,6 @@ testers are expected to do more *exploratory* testing.
 
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
-
-1. _{ more test cases …​ }_
 
 ### Deleting a person
 
