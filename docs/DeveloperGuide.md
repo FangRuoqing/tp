@@ -158,6 +158,71 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Company feature
+The company attribute is kept as a String and each Person has a company attribute, which is initialised as an empty String
+and only added on later to the contact with the `co NAME c/COMPANY_NAME` command.
+
+The adding of a company attribute to a contact follows the following activity diagram.
+
+<puml src="diagrams/CompanyCommandActivityDiagram.puml" width="574" />
+
+The company attribute is displayed in the contact card. We initialise it as visible=False in the PersonListCard.fxml file,
+and then set it as visible when the company attribute is not an empty String in the PersonCard.java file in the UI component.
+This way there won't be awkward empty spaces in the contact card when the contact does not have a company attribute.
+
+#### Design considerations:
+The company attribute can only be added and removed with the company command format `co NAME c/COMPANY_NAME`, where COMPANY_NAME
+is specified as empty for a remove company command. This is for user convenience as the current add command has several 
+prefixes which might make an add command too length. Hence, we believe that with the company attribute being handled differently,
+it would increase user convenience and usability.
+
+### Find by Company feature
+The find by company feature works in a similar way to AB-3's find by contact name feature. We were inspired by the implementation
+of AB-3's find feature and modified it to cater to the company attribute. We actually modified our find feature to find
+by partial words rather than full words, as it would increase user convenience. However, for the find by company feature, 
+it works by matching full words rather than partial words.
+
+We created a CompanyContainsKeywordsPredicate that checks whether the contacts in Connectify have company attributes that match
+the keywords inputted. We create the CompanyContainsKeywordsPredicate object with the company keywords inputted in the
+FindCompanyCommandParser. Then, in the FindCompanyCommand, we update the filtered list with the given CompanyContainsKeywordsPredicate
+and check if the updated list is empty. If the updated list is empty. We will throw an error message to display to the user.
+
+The feature flow follows the following sequence diagram.
+
+<puml src="diagrams/FindCompanySequenceDiagram.puml" width="574" />
+
+#### Design considerations:
+The find by company feature checks for contacts with the company attribute that matches the full keyword inputted, case-insensitive.
+This is to ensure higher accuracy when searching for contacts from a particular company. 
+
+By using the similar method used in the FindCommand and using a CompanyContainsKeywordsPredicate, we maintain consistency
+of our implementation throughout the program.
+
+### Meeting feature
+The meeting attribute of an object is kept as a Meeting object with 4 attributes, a String description, a LocalDate date,
+a LocalTime start and a LocalTime end. A Meeting object is initialized with 4 Strings, the meeting description, date, start and end
+time. For our current implementation, each contact is only allowed to have one meeting object.
+
+The adding of a meeting attribute to a contact follows the following sequence diagram.
+
+<puml src="diagrams/AddMeetingCommandSequenceDiagram.puml" width="574" />
+
+**Challenges faced**
+We initially meant to do the parsing of the date and time strings to the LocalDate and LocalTime respectively in the AddMeetingCommandParser.
+However, we realised that if we wanted to initialize the meeting object with LocalDate and LocalTime, we would face several issues like
+NullPointerException when we try to initialize 'null' meetings in a similar fashion to initializing empty company with "" to indicate
+no company attribute. We considered using Optional class but were worried that it would overcomplicate the application architecture.
+As a result, we decided to initialize a Meeting object with 4 Strings, the meeting description, date, start and end all stored
+as Strings, and parse it into LocalDate and LocalTime in the initialization itself, handling empty strings accordingly.
+
+### View meetings feature
+The view meetings feature works in a simple way by filtering the contact list in Connectify by whether the meeting attribute of
+the person is empty or not. The whole implementation is done in the ViewMeetingCommand.
+
+The logic of the view meetings function follows the following activity diagram.
+
+<puml src="diagrams/ViewMeetingsActivityDiagram.puml" width="574" />
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
